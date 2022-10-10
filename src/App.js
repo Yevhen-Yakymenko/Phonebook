@@ -38,9 +38,13 @@ export default class App extends Component {
     return contacts.find(contact => contact.number === number);
   };
 
-  // removeContact = newContact => {
-  //   this.state.contacts.filter(contact => contact.name === newContact.name);
-  // };
+  removeContact = id => {
+    const deleteContact = this.state.contacts.findIndex(
+      contact => contact.id === id
+    );
+
+    this.setState(({ contacts }) => contacts.splice(deleteContact, 1));
+  };
 
   handlFilter = filter => this.setState({ ...filter });
 
@@ -53,7 +57,11 @@ export default class App extends Component {
         <ContactForm addContact={this.addNewContact} />
         <h2>Contacts</h2>
         <Filter onFilter={this.handlFilter} />
-        <ContactList contacts={contacts} filter={filter} />
+        <ContactList
+          contacts={contacts}
+          filter={filter}
+          onDeleteContact={this.removeContact}
+        />
       </div>
     );
   }
