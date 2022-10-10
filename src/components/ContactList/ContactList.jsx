@@ -18,11 +18,14 @@ export default class ContactList extends Component {
         {filteredContacts.length > 0 ? (
           filteredContacts.map(({ id, name, number }) => (
             <li key={id}>
-              <span>{name}</span>: <span>{number}</span>
+              <span>{name}</span>: <span>{number}</span>{' '}
+              <button type="button">Delete</button>
             </li>
           ))
         ) : (
-          <li>no contacts</li>
+          <li>
+            <p>You don't have any contacts yet. Try adding a new contact.</p>
+          </li>
         )}
       </ul>
     );

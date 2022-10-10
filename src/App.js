@@ -14,11 +14,33 @@ export default class App extends Component {
   };
 
   addNewContact = (name, number) => {
+    if (this.checkContactName(name)) {
+      return alert(`${name} is already in contacts`);
+    }
+
+    if (this.checkContactNumber(number)) {
+      return alert(`${number} is already in contacts`);
+    }
+
     const newContact = { id: nanoid(), name, number };
     this.setState(prevState => ({
       contacts: [...prevState.contacts, newContact],
     }));
   };
+
+  checkContactName = contactName => {
+    const { contacts } = this.state;
+    return contacts.find(contact => contact.name === contactName);
+  };
+
+  checkContactNumber = number => {
+    const { contacts } = this.state;
+    return contacts.find(contact => contact.number === number);
+  };
+
+  // removeContact = newContact => {
+  //   this.state.contacts.filter(contact => contact.name === newContact.name);
+  // };
 
   handlFilter = filter => this.setState({ ...filter });
 
