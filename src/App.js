@@ -20,19 +20,19 @@ export default class App extends Component {
     }));
   };
 
-  handlFilter = obj => {
-    this.setState({ ...obj });
-  };
+  handlFilter = filter => this.setState({ ...filter });
 
   render() {
     const { contacts, filter } = this.state;
 
     return (
-      <>
+      <div>
+        <h1>Phonebook</h1>
         <ContactForm addContact={this.addNewContact} />
+        <h2>Contacts</h2>
         <Filter onFilter={this.handlFilter} />
         <ContactList contacts={contacts} filter={filter} />
-      </>
+      </div>
     );
   }
 }
