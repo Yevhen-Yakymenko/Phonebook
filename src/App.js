@@ -14,10 +14,36 @@ export default class App extends Component {
   };
 
   addNewContact = (name, number) => {
+    if (this.checkContactName(name)) {
+      return alert(`${name} is already in contacts`);
+    }
+
+    if (this.checkContactNumber(number)) {
+      return alert(`${number} is already in contacts`);
+    }
+
     const newContact = { id: nanoid(), name, number };
     this.setState(prevState => ({
       contacts: [...prevState.contacts, newContact],
     }));
+  };
+
+  checkContactName = contactName => {
+    const { contacts } = this.state;
+    return contacts.find(contact => contact.name === contactName);
+  };
+
+  checkContactNumber = number => {
+    const { contacts } = this.state;
+    return contacts.find(contact => contact.number === number);
+  };
+
+  removeContact = id => {
+    const deleteContact = this.state.contacts.findIndex(
+      contact => contact.id === id
+    );
+
+    this.setState(({ contacts }) => contacts.splice(deleteContact, 1));
   };
 
   handlFilter = filter => this.setState({ ...filter });
@@ -28,10 +54,14 @@ export default class App extends Component {
     return (
       <div>
         <h1>Phonebook</h1>
-        <ContactForm addContact={this.addNewContact} />
+        <ContactForm onAddContact={this.addNewContact} />
         <h2>Contacts</h2>
         <Filter onFilter={this.handlFilter} />
-        <ContactList contacts={contacts} filter={filter} />
+        <ContactList
+          contacts={contacts}
+          filter={filter}
+          onDeleteContact={this.removeContact}
+        />
       </div>
     );
   }
