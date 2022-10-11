@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function Filter({ onFilter }) {
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -19,3 +21,7 @@ export default function Filter({ onFilter }) {
     </label>
   );
 }
+
+Filter.propTypes = {
+  onFilter: PropTypes.func.isRequired,
+};

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function ContactList({ contacts, filter, onDeleteContact }) {
   const filteredContacts = findContact(contacts, filter);
 
@@ -28,3 +30,15 @@ export default function ContactList({ contacts, filter, onDeleteContact }) {
     </ul>
   );
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  filter: PropTypes.string.isRequired,
+  onDeleteContact: PropTypes.func.isRequired,
+};

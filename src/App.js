@@ -54,7 +54,7 @@ export default class App extends Component {
     return (
       <div>
         <h1>Phonebook</h1>
-        <ContactForm addContact={this.addNewContact} />
+        <ContactForm onAddContact={this.addNewContact} />
         <h2>Contacts</h2>
         <Filter onFilter={this.handlFilter} />
         <ContactList
