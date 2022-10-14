@@ -13,6 +13,20 @@ export default class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const savedContacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(savedContacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: [...parsedContacts] });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (this.state.contacts !== prevState.contacts)
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  }
+
   addNewContact = (name, number) => {
     if (this.checkContactName(name)) {
       return alert(`${name} is already in contacts`);
@@ -38,12 +52,10 @@ export default class App extends Component {
     return contacts.find(contact => contact.number === number);
   };
 
-  removeContact = id => {
-    const deleteContact = this.state.contacts.findIndex(
-      contact => contact.id === id
-    );
-
-    this.setState(({ contacts }) => contacts.splice(deleteContact, 1));
+  removeContact = contactId => {
+    this.setState(({ contacts }) => ({
+      contacts: contacts.filter(({ id }) => id !== contactId),
+    }));
   };
 
   handlFilter = filter => this.setState({ ...filter });
