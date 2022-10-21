@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 
 import ContactForm from 'components/ContactForm';
@@ -20,12 +20,13 @@ export default function App() {
     }
   }, []);
 
-  useEffect(() => {
-    if (contacts.length === 0) {
-      return;
-    }
+  const didMountRef = useRef(false);
 
-    localStorage.setItem('contacts', JSON.stringify(contacts));
+  useEffect(() => {
+    if (didMountRef.current) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+    didMountRef.current = true;
   }, [contacts]);
 
   const addNewContact = (name, number) => {
