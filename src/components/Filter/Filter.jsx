@@ -1,10 +1,13 @@
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { filterContacts } from 'redux/contactsSlice';
 
-export default function Filter({ onFilter }) {
+export default function Filter() {
+  const dispatch = useDispatch();
+
   const handleChange = e => {
     const { value } = e.target;
 
-    onFilter(value);
+    dispatch(filterContacts(value));
   };
 
   return (
@@ -21,7 +24,3 @@ export default function Filter({ onFilter }) {
     </label>
   );
 }
-
-Filter.propTypes = {
-  onFilter: PropTypes.func.isRequired,
-};
