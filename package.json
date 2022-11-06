@@ -2,7 +2,7 @@
   "name": "phonebook",
   "version": "0.4.0",
   "private": true,
-  "homepage": "https://123.github.io/phonebook/",
+  "homepage": "https://yevhen-yakymenko.github.io/phonebook/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.5",
