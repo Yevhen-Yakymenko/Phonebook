@@ -1,11 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { filterContacts } from 'redux/contactsSlice';
+import { filterContacts } from 'redux/filterSlice';
 
 export default function Filter() {
   const dispatch = useDispatch();
 
   const handleChange = e => {
     const { value } = e.target;
+
+    console.log(value);
 
     dispatch(filterContacts(value));
   };

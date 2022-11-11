@@ -1,40 +1,50 @@
+import { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { deleteContact } from 'redux/contactsSlice';
+import { useGetContactsQuery } from 'redux/apiContactsSlice';
 
 export default function ContactList() {
-  const contacts = useSelector(state => state.phonebook.contacts);
-  const filter = useSelector(state => state.phonebook.filter);
-  const dispatch = useDispatch();
+  const {
+    data: contacts,
+    isLoading,
+    isSuccess,
+    // isError,
+    // error,
+  } = useGetContactsQuery();
 
-  const filteredContacts = findContact(contacts, filter);
+  const filter = useSelector(state => state.filter);
+  // const dispatch = useDispatch();
 
-  function findContact(contacts, filter) {
-    return filter === ''
-      ? contacts
-      : contacts.filter(contact =>
-          contact.name.toLowerCase().includes(filter.toLowerCase())
-        );
-  }
+  const filteredContacts = useMemo(() => {
+    if (isSuccess) {
+      return filter === ''
+        ? contacts
+        : contacts.filter(({ name }) =>
+            name.toLowerCase().includes(filter.toLowerCase())
+          );
+    }
+  }, [contacts, filter, isSuccess]);
 
-  const removeContact = contactId => dispatch(deleteContact(contactId));
+  // const removeContact = contactId => dispatch(deleteContact(contactId));
 
   return (
-    <ul>
-      {filteredContacts.length > 0 ? (
-        filteredContacts.map(({ id, name, number }) => (
-          <li key={id}>
-            <span>{name}</span>: <span>{number}</span>{' '}
-            <button type="button" onClick={() => removeContact(id)}>
-              Delete
-            </button>
-          </li>
-        ))
+    <>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : filteredContacts.length > 0 ? (
+        <ul>
+          {filteredContacts.map(({ id, name, number }) => (
+            <li key={id}>
+              <span>{name}</span>: <span>{number}</span>{' '}
+              <button type="button" onClick={() => {}}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
       ) : (
-        <li>
-          <p>You don't have any contacts yet. Try adding a new contact.</p>
-        </li>
+        <p>You don't have any contacts yet. Try adding a new contact.</p>
       )}
-    </ul>
+    </>
   );
 }
