@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { useGetContactsQuery } from 'redux/apiContactsSlice';
+import ContacsListItem from 'components/ContactsListItem';
 
 export default function ContactList() {
   const {
@@ -13,7 +14,6 @@ export default function ContactList() {
   } = useGetContactsQuery();
 
   const filter = useSelector(state => state.filter);
-  // const dispatch = useDispatch();
 
   const filteredContacts = useMemo(() => {
     if (isSuccess) {
@@ -25,21 +25,14 @@ export default function ContactList() {
     }
   }, [contacts, filter, isSuccess]);
 
-  // const removeContact = contactId => dispatch(deleteContact(contactId));
-
   return (
     <>
       {isLoading ? (
         <p>Loading...</p>
       ) : filteredContacts.length > 0 ? (
         <ul>
-          {filteredContacts.map(({ id, name, number }) => (
-            <li key={id}>
-              <span>{name}</span>: <span>{number}</span>{' '}
-              <button type="button" onClick={() => {}}>
-                Delete
-              </button>
-            </li>
+          {filteredContacts.map(contact => (
+            <ContacsListItem key={contact.id} contact={contact} />
           ))}
         </ul>
       ) : (

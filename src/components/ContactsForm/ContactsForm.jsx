@@ -1,40 +1,50 @@
-// import { useSelector, useDispatch } from 'react-redux';
-// import { addContact } from 'redux/contactsSlice';
+import {
+  useGetContactsQuery,
+  useAddNewContactMutation,
+} from 'redux/apiContactsSlice';
 
 export default function ContactForm() {
-  // const contacts = useSelector(state => state.phonebook.contacts);
-  // const dispatch = useDispatch();
+  const { data: contacts } = useGetContactsQuery();
+  const [
+    addNewContact,
+    // { isLoading }
+  ] = useAddNewContactMutation();
 
-  // const addNewContact = (name, number) => {
-  //   if (checkContactName(name)) {
-  //     return alert(`${name} is already in contacts`);
-  //   }
+  const addContact = async (name, number) => {
+    if (checkContactName(name)) {
+      return alert(`${name} is already in contacts`);
+    }
 
-  //   if (checkContactNumber(number)) {
-  //     return alert(`${number} is already in contacts`);
-  //   }
+    if (checkContactNumber(number)) {
+      return alert(`${number} is already in contacts`);
+    }
 
-  //   dispatch(addContact(name, number));
-  // };
+    try {
+      await addNewContact({ name, number });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // const checkContactName = contactName =>
-  //   contacts.find(
-  //     contact => contact.name.toLowerCase() === contactName.toLowerCase()
-  //   );
+  const checkContactName = contactName =>
+    contacts.find(
+      contact => contact.name.toLowerCase() === contactName.toLowerCase()
+    );
 
-  // const checkContactNumber = number =>
-  //   contacts.find(contact => contact.number === number);
+  const checkContactNumber = number =>
+    contacts.find(contact => contact.number === number);
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
+
     const firstName = form.elements.firstName.value;
     const lastName = form.elements.lastName.value;
+
     const name = `${firstName} ${lastName}`;
     const number = form.elements.number.value;
-    console.log(name, number);
 
-    // addNewContact(name, number);
+    addContact(name, number);
 
     form.reset();
   };
