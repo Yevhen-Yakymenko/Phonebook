@@ -1,0 +1,43 @@
+Routes ===>>>
+
+Layout => "/"
+  HomePage => index Route to "/"
+  Contacts => "/contacts"
+  Calendar => "/calendar"
+  Notes => "/notes"
+  LogInPage => "/login"
+  SignUpPage => "/signup"
+
+Components ===>>>
+
+-Layout > AppBar > Logo+NavList+(AuthNavList or UserMenu)
+  -AppBar
+    -Logo > styled text
+    -MainNavList > NavLink > home+contacts+calendar+notes
+    -AuthNavList > NavLink > signup+login
+    -UserMenu > avatar+userName+btnLogOut
+
+
+
+1. add NavList and UserMenu components
+2. add Layout component
+3. add to Layout NavList, UserMenu and Logo
+4. add SingUpPage > SingUpForm
+5. add LogInPage > LogInForm
+6. add ContactsPage > Filter+addContactBtn+ContactList
+
+1. login + sign up
+2. styled appBar
+3. modal for addConatact + edit contact
+
+
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2016",
+    "baseUrl": "src",
+    "checkJs": true,
+    "jsx": "preserve"
+  },
+  "include": ["src"]
+}

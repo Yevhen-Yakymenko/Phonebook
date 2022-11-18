@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useGetContactsQuery } from 'redux/apiContactsSlice';
+import { useGetContactsQuery } from 'redux/contacts/contactsApi';
+import { selectFilter } from 'redux/contacts/contactsSelectors';
 import ContacsListItem from 'components/ContactsListItem';
 
-export default function ContactList() {
+export default function ContactList({ showModal, togleModal }) {
   const {
     data: contacts,
     isLoading,
@@ -13,7 +14,7 @@ export default function ContactList() {
     // error,
   } = useGetContactsQuery();
 
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(selectFilter);
 
   const filteredContacts = useMemo(() => {
     if (isSuccess) {
@@ -29,10 +30,15 @@ export default function ContactList() {
     <>
       {isLoading ? (
         <p>Loading...</p>
-      ) : filteredContacts.length > 0 ? (
+      ) : filteredContacts?.length > 0 ? (
         <ul>
           {filteredContacts.map(contact => (
-            <ContacsListItem key={contact.id} contact={contact} />
+            <ContacsListItem
+              key={contact.id}
+              contact={contact}
+              showModal={showModal}
+              togleModal={togleModal}
+            />
           ))}
         </ul>
       ) : (

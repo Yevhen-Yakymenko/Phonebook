@@ -1,13 +1,23 @@
-import { useDeleteContactMutation } from 'redux/apiContactsSlice';
+import {
+  useGetContactQuery,
+  useDeleteContactMutation,
+} from 'redux/contacts/contactsApi';
 
-const ContactItem = ({ contact }) => {
-  const [deleteContact, { isLoading }] = useDeleteContactMutation();
+import Modal from 'components/Modal';
+
+const ContactItem = ({ contact, showModal, togleModal }) => {
   const { name, number, id } = contact;
+  const [deleteContact, { isLoading }] = useDeleteContactMutation();
 
   return (
     <li>
       <span>{name}</span>: <span>{number}</span>
-      <button type="button" onClick={() => {}}>
+      <button
+        type="button"
+        onClick={() => {
+          togleModal();
+        }}
+      >
         Edit
       </button>
       <button
@@ -19,6 +29,14 @@ const ContactItem = ({ contact }) => {
       >
         Delete
       </button>
+      {showModal && (
+        <Modal
+          name={name}
+          number={number}
+          btnText={'Edit contact'}
+          onClose={togleModal}
+        />
+      )}
     </li>
   );
 };

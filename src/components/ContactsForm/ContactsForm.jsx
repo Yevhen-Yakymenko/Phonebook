@@ -1,38 +1,45 @@
 import {
-  useGetContactsQuery,
+  // useGetContactsQuery,
   useAddNewContactMutation,
-} from 'redux/apiContactsSlice';
+} from 'redux/contacts/contactsApi';
 
-export default function ContactForm() {
-  const { data: contacts } = useGetContactsQuery();
-  const [
-    addNewContact,
-    // { isLoading }
-  ] = useAddNewContactMutation();
+export default function ContactForm({ closeModal }) {
+  let firstName = '';
+  let lastName = '';
+  let phoneNumber = '';
+  let btnText = 'Add contact';
+  // const { data: contacts } = useGetContactsQuery();
+  const [addNewContact, { isLoading, isSuccess }] = useAddNewContactMutation();
 
-  const addContact = async (name, number) => {
-    if (checkContactName(name)) {
-      return alert(`${name} is already in contacts`);
-    }
+  // if (name !== '') {
+  //   const contactName = name.split(' ');
+  //   firstName = contactName[0];
+  //   lastName = contactName[1];
+  // }
 
-    if (checkContactNumber(number)) {
-      return alert(`${number} is already in contacts`);
-    }
+  // const addContact = async (name, number) => {
+  //   if (checkContactName(name)) {
+  //     return alert(`${name} is already in contacts`);
+  //   }
 
-    try {
-      await addNewContact({ name, number });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   if (checkContactNumber(number)) {
+  //     return alert(`${number} is already in contacts`);
+  //   }
 
-  const checkContactName = contactName =>
-    contacts.find(
-      contact => contact.name.toLowerCase() === contactName.toLowerCase()
-    );
+  //   try {
+  //     await addNewContact({ name, number });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const checkContactNumber = number =>
-    contacts.find(contact => contact.number === number);
+  // const checkContactName = contactName =>
+  //   contacts.find(
+  //     contact => contact.name.toLowerCase() === contactName.toLowerCase()
+  //   );
+
+  // const checkContactNumber = number =>
+  //   contacts.find(contact => contact.number === number);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -44,10 +51,15 @@ export default function ContactForm() {
     const name = `${firstName} ${lastName}`;
     const number = form.elements.number.value;
 
-    addContact(name, number);
+    // addContact(name, number);
+    addNewContact({ name: name, number: number });
 
     form.reset();
   };
+
+  if (isSuccess) {
+    closeModal();
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -59,6 +71,7 @@ export default function ContactForm() {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
+          defaultValue={firstName}
         />
       </label>
       <label>
@@ -69,6 +82,7 @@ export default function ContactForm() {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
+          defaultValue={lastName}
         />
       </label>
       <label>
@@ -79,9 +93,12 @@ export default function ContactForm() {
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
+          defaultValue={phoneNumber}
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button type="submit" disabled={isLoading}>
+        {btnText}
+      </button>
     </form>
   );
 }

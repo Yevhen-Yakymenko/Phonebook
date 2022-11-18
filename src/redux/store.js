@@ -1,14 +1,36 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { apiContactsSlice } from './apiContactsSlice';
-import { filterReducer } from './filterSlice';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import {
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
-// import { contactsReducer } from './contactsSlice';
+import { userApi } from './user/userApi';
+import { userReducer } from './user/userSlice';
+import { contactsApi } from './contacts/contactsApi';
+import { filterReducer } from './contacts/contactsFilterSlice';
 
 export const store = configureStore({
   reducer: {
+    [userApi.reducerPath]: userApi.reducer,
+    auth: userReducer,
+    [contactsApi.reducerPath]: contactsApi.reducer,
     filter: filterReducer,
-    [apiContactsSlice.reducerPath]: apiContactsSlice.reducer,
   },
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(apiContactsSlice.middleware),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    })
+      .concat(userApi.middleware)
+      .concat(contactsApi.middleware),
 });
+
+export const persistor = persistStore(store);
+setupListeners(store.dispatch);
