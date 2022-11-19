@@ -8,6 +8,7 @@ import { useAuth } from 'hooks/useAuth';
 import { setUser } from 'redux/user/userSlice';
 
 import Layout from 'components/Layout';
+import { GlobalStyle } from './GlobalStyle';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage'));
@@ -18,10 +19,6 @@ export default function App() {
   const dispatch = useDispatch();
   const { token } = useAuth();
   const { data } = useGetUserQuery(token ?? skipToken);
-  // console.log(data);
-  // console.log(refetch);
-  console.log(data);
-  // const currentUser = data.user;
 
   useEffect(() => {
     if (!data) {
@@ -31,13 +28,16 @@ export default function App() {
   }, [data, dispatch]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="contacts" element={<ContactsPage />} />
-        <Route path="signup" element={<SignUpPage />} />
-        <Route path="login" element={<LogInPage />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="signup" element={<SignUpPage />} />
+          <Route path="login" element={<LogInPage />} />
+        </Route>
+      </Routes>
+      <GlobalStyle />
+    </>
   );
 }

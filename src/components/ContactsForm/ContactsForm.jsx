@@ -55,11 +55,12 @@ export default function ContactForm({ closeModal }) {
     addNewContact({ name: name, number: number });
 
     form.reset();
+    closeModal();
   };
 
-  if (isSuccess) {
-    closeModal();
-  }
+  // if (isSuccess) {
+  //   closeModal();
+  // }
 
   return (
     <form onSubmit={handleSubmit}>

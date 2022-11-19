@@ -7,8 +7,6 @@ export default function Filter() {
   const handleChange = e => {
     const { value } = e.target;
 
-    console.log(value);
-
     dispatch(filterContacts(value));
   };
 

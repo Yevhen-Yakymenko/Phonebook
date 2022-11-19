@@ -13,14 +13,14 @@ import {
 import { userApi } from './user/userApi';
 import { userReducer } from './user/userSlice';
 import { contactsApi } from './contacts/contactsApi';
-import { filterReducer } from './contacts/contactsFilterSlice';
+import { contactsFilterReducer } from './contacts/contactsFilterSlice';
 
 export const store = configureStore({
   reducer: {
     [userApi.reducerPath]: userApi.reducer,
     auth: userReducer,
     [contactsApi.reducerPath]: contactsApi.reducer,
-    filter: filterReducer,
+    filter: contactsFilterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
