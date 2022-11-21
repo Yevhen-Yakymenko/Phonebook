@@ -8,6 +8,9 @@ import { useAuth } from 'hooks/useAuth';
 import { setUser } from 'redux/user/userSlice';
 
 import Layout from 'components/Layout';
+import RestrictedRoute from 'components/RestrictedRoute';
+import PrivateRoute from 'components/PrivateRoute';
+
 import { GlobalStyle } from './GlobalStyle';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
@@ -32,9 +35,30 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="contacts" element={<ContactsPage />} />
-          <Route path="signup" element={<SignUpPage />} />
-          <Route path="login" element={<LogInPage />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            }
+          />
+          <Route
+            path="signup"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<SignUpPage />}
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LogInPage />}
+              />
+            }
+          />
         </Route>
       </Routes>
       <GlobalStyle />

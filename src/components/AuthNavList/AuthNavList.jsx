@@ -1,12 +1,14 @@
 import { NavLink } from 'react-router-dom';
 
-const UserMenu = () => {
+import { BtnWrapper } from './AuthNavList.styled';
+
+const AuthNavList = () => {
   return (
-    <nav>
+    <BtnWrapper>
       <NavLink to={'signup'}>Sign Up</NavLink>
       <NavLink to={'login'}>Log In</NavLink>
-    </nav>
+    </BtnWrapper>
   );
 };
 
-export default UserMenu;
+export default AuthNavList;

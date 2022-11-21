@@ -1,9 +1,9 @@
 import { useLogInMutation } from 'redux/user/userApi';
-// import { authorization } from 'redux/user/userSlice';
+
+import { StyledForm, StyledLable, StyledInput } from './LogInForm.styled';
 
 const LogInForm = () => {
   const [logIn] = useLogInMutation();
-  // .then(({ token }) => authorization(token));
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -16,17 +16,17 @@ const LogInForm = () => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <label>
+    <StyledForm autoComplete="off" onSubmit={handleSubmit}>
+      <StyledLable>
         Email
-        <input type="email" name="email" />
-      </label>
-      <label>
+        <StyledInput type="email" name="email" required />
+      </StyledLable>
+      <StyledLable>
         Password
-        <input type="password" name="password" />
-      </label>
+        <StyledInput type="password" name="password" required />
+      </StyledLable>
       <button type="submit">Log In</button>
-    </form>
+    </StyledForm>
   );
 };
 

@@ -1,11 +1,15 @@
-import { NavLink } from 'react-router-dom';
+import { NavWrapper, StyledLink } from './MainNavList.styled';
 
 const NavList = () => {
   return (
-    <nav>
-      <NavLink to={'/'}>Home</NavLink>
-      <NavLink to={'contacts'}>Contacts</NavLink>
-    </nav>
+    <NavWrapper>
+      <StyledLink to={'/'} title="Home">
+        Home
+      </StyledLink>
+      <StyledLink to={'contacts'} title="Contacts">
+        Contacts
+      </StyledLink>
+    </NavWrapper>
   );
 };
 

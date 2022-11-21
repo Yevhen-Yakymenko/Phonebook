@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${p => p.theme.colors.bodyBackground};
   }
 
-  a{
+  a {
     text-decoration: none;
   }
   
@@ -39,5 +39,9 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     margin: 0 auto;
     width: 1440px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;    
+    overflow: hidden;
   }
 `;

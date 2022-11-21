@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import { GiCandlestickPhone } from 'react-icons/gi';
 
 export const MainHeader = styled.header`
-  width: 100vw;
+  height: 80px;
   display: flex;
   align-items: center;
+  background-color: ${p => p.theme.colors.white};
+  border-bottom: 1px solid ${p => p.theme.colors.border};
 `;
 
-export const LogoWrapper = styled.div``;
-
-export const NavWrapper = styled.div`
-  width: 100%;
+export const NavContainer = styled.div`
+  flex-grow: 2;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
 `;
