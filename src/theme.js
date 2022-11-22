@@ -35,6 +35,7 @@ export const theme = {
   lineHeights: {
     body: 1.5,
     heading: 1.125,
+    text: 2,
   },
 
   letterSpacings: {

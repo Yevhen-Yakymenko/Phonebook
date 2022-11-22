@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const LogInSection = styled.section`
-  width: 100vw;
+  width: 100%;
   padding: ${p => p.theme.space[4]}px;
   display: flex;
   background: linear-gradient(270deg, #eaf0ff 0%, #f6f9ff 100%);
@@ -20,21 +20,21 @@ export const ContentWrapper = styled.div`
   padding-bottom: ${p => p.theme.space[5]}px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: ${p => p.theme.space[4]}px; ;
 `;
 
 export const ContentMainText = styled.p`
   font-family: ${p => p.theme.fonts.secondary};
   font-weight: ${p => p.theme.fontWeights.medium};
-  line-height: 2;
+  line-height: ${p => p.theme.lineHeights.text};
   text-transform: uppercase;
-  color: #3d4f9f;
+  color: ${p => p.theme.colors.heading};
 `;
 
 export const ContentText = styled.p`
   font-family: ${p => p.theme.fonts.secondary};
-  line-height: 2;
-  color: #8d96bd;
+  line-height: ${p => p.theme.lineHeights.text};
+  color: ${p => p.theme.colors.text};
 `;
 
 export const FormBox = styled.div`

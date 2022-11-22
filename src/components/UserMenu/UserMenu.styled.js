@@ -7,7 +7,7 @@ export const MenuWrapper = styled.div`
   align-items: center;
   justify-content: end;
   gap: ${p => p.theme.space[3]}px;
-  font-size: ${p => p.theme.fontSizes[5]}px;
+  font-size: ${p => p.theme.fontSizes[4]}px;
   font-weight: ${p => p.theme.fontWeights.medium};
 `;
 
@@ -29,18 +29,20 @@ export const BtnLogOut = styled.button`
   border: 2px solid ${p => p.theme.colors.btnAccent};
   border-radius: 50%;
   cursor: pointer;
-  transition: color 200ms linear, border 200ms linear, background 200ms linear;
+  transition: color 100ms linear, border 100ms linear, background 100ms linear;
 
   &:hover {
-    color: ${p => p.theme.colors.white};
+    /* color: ${p => p.theme.colors.white};
     border: 2px solid ${p => p.theme.colors.border};
-    background: ${p => p.theme.colors.btnAccent};
+    background: ${p => p.theme.colors.btnAccent}; */
+    background: #ffd7d7;
+    color: #d43f3f;
+    border: 2px solid #d43f3f;
   }
 `;
 
 export const BtnIcon = styled(FiLogOut)`
-  width: ${p => p.theme.fontSizes[5]}px;
-  height: ${p => p.theme.fontSizes[5]}px;
+  width: ${p => p.theme.fontSizes[4]}px;
+  height: ${p => p.theme.fontSizes[4]}px;
   vertical-align: middle;
-  /* transform: rotate(180deg); */
 `;
