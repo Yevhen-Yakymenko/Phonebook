@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { FiLogOut } from 'react-icons/fi';
 
 export const MenuWrapper = styled.div`
-  padding-right: ${p => p.theme.space[4]}px;
   flex-grow: 1;
   display: flex;
   align-items: center;
@@ -26,14 +25,15 @@ export const BtnLogOut = styled.button`
   height: ${p => p.theme.space[4]}px;
   padding: 0;
   background: ${p => p.theme.colors.btnBackground};
-  color: ${p => p.theme.colors.btnText};
+  color: ${p => p.theme.colors.text};
   border: 2px solid ${p => p.theme.colors.btnAccent};
   border-radius: 50%;
   cursor: pointer;
-  transition: color 200ms linear, background 200ms linear;
+  transition: color 200ms linear, border 200ms linear, background 200ms linear;
 
   &:hover {
     color: ${p => p.theme.colors.white};
+    border: 2px solid ${p => p.theme.colors.border};
     background: ${p => p.theme.colors.btnAccent};
   }
 `;

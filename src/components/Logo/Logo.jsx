@@ -1,8 +1,8 @@
 import { LogoBox, LogoText, LogoIcon } from './Logo.styled';
 
-const Logo = () => {
+const Logo = ({ logoColor = 'primary' }) => {
   return (
-    <LogoBox>
+    <LogoBox logoColor={logoColor}>
       <LogoText>
         Phone <LogoIcon /> book
       </LogoText>
