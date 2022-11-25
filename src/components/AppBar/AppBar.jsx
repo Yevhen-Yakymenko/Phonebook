@@ -1,5 +1,7 @@
 import { useAuth } from 'hooks/useAuth';
 
+import { Link } from 'react-router-dom';
+
 import Logo from 'components/Logo';
 import MainNavList from 'components/MainNavList';
 import AuthNavList from 'components/AuthNavList';
@@ -12,7 +14,10 @@ const AppBar = () => {
 
   return (
     <MainHeader>
-      <Logo />
+      <Link to={'/'} title="Home">
+        <Logo />
+      </Link>
+
       <NavContainer>
         <MainNavList />
         {isLoggedIn ? <UserMenu /> : <AuthNavList />}

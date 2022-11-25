@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GiCandlestickPhone } from 'react-icons/gi';
+import { FaRegAddressBook } from 'react-icons/fa';
 
 export const LogoBox = styled.div`
   color: ${p =>
@@ -13,4 +13,6 @@ export const LogoText = styled.h1`
   gap: 4px;
 `;
 
-export const LogoIcon = styled(GiCandlestickPhone)``;
+export const LogoIcon = styled(FaRegAddressBook)`
+  vertical-align: middle;
+`;

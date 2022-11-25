@@ -1,14 +1,14 @@
-import {
-  BtnWrapper,
-  SyledLink,
-  StyledLinkSecondary,
-} from './AuthNavList.styled';
+import { BtnWrapper, LinkLogIn, LinkSignUp } from './AuthNavList.styled';
 
 const AuthNavList = () => {
   return (
     <BtnWrapper>
-      <SyledLink to={'login'}>Log In</SyledLink>
-      <StyledLinkSecondary to={'signup'}>Sign Up</StyledLinkSecondary>
+      <LinkLogIn to={'login'} title="Log In">
+        Log In
+      </LinkLogIn>
+      <LinkSignUp to={'signup'} title="Sign Up">
+        Sign Up
+      </LinkSignUp>
     </BtnWrapper>
   );
 };

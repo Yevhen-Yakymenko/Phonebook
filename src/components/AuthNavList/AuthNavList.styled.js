@@ -8,14 +8,30 @@ export const BtnWrapper = styled.nav`
   gap: ${p => p.theme.space[3]}px;
 `;
 
-export const SyledLink = styled(NavLink)`
+export const StyledLink = styled(NavLink)`
   padding: ${p => p.theme.space[2]}px ${p => p.theme.space[3]}px;
-  font-weight: ${p => p.theme.fontWeights.bold};
+  font-weight: ${p => p.theme.fontWeights.medium};
+  border-radius: ${p => p.theme.space[2]}px;
+  transition: font-weight 100ms linear;
+
+  &:hover {
+    font-weight: ${p => p.theme.fontWeights.bold};
+  }
+
+  &::after {
+    display: block;
+    content: attr(title);
+    font-weight: ${p => p.theme.fontWeights.bold};
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+`;
+
+export const LinkLogIn = styled(StyledLink)`
   color: ${p => p.theme.colors.btnText};
   background: ${p => p.theme.colors.btnBackground};
-  border-radius: ${p => p.theme.space[2]}px;
   border: 1px solid ${p => p.theme.colors.border};
-  cursor: pointer;
   transition: color 100ms linear, background 100ms linear;
 
   &:hover {
@@ -24,16 +40,12 @@ export const SyledLink = styled(NavLink)`
   }
 `;
 
-export const StyledLinkSecondary = styled(NavLink)`
-  padding: ${p => p.theme.space[2]}px ${p => p.theme.space[3]}px;
-  font-weight: ${p => p.theme.fontWeights.medium};
+export const LinkSignUp = styled(StyledLink)`
   color: ${p => p.theme.colors.white};
   background: ${p => p.theme.colors.btnAccent};
-  border-radius: ${p => p.theme.space[2]}px;
-  cursor: pointer;
   transition: opacity 100ms linear;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.7;
   }
 `;
