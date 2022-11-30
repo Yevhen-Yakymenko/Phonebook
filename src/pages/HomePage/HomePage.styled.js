@@ -1,16 +1,13 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { GiCandlestickPhone, GiBlackBook } from 'react-icons/gi';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
+
+import { Box } from 'components/Container/Container.styled';
 
 export const HomePageSection = styled.section`
-  padding: ${p => p.theme.space[4]}px;
   position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(180deg, #f4f7ff 0%, #f1f5ff 100%);
 `;
 
@@ -27,12 +24,35 @@ export const DecorBox = styled.div`
   );
 `;
 
-export const StyledLink = styled(NavLink)`
+export const Container = styled(Box)`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ContentBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const ContentText = styled.p`
+  font-family: ${p => p.theme.fonts.secondary};
+  color: black;
+
+  :last-child {
+    align-self: flex-end;
+  }
+`;
+
+export const ContentLink = styled(NavLink)`
   display: flex;
   gap: 64px;
   align-items: center;
   color: palevioletred;
   opacity: 0.4;
+  z-index: 100;
   transition: opacity 100ms linear;
 
   :hover {

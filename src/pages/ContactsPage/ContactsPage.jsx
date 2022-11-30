@@ -4,15 +4,16 @@ import Modal from 'components/Modal';
 import ContactsList from 'components/ContactsList';
 import Filter from 'components/Filter';
 
+import { ContactsSection } from './ContactsPage.styled';
+
 const ContactsPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   const togleModal = () => setShowModal(!showModal);
 
   return (
-    <section>
+    <ContactsSection>
       {showModal && <Modal onClose={togleModal} />}
-      <h2>Contacts</h2>
       <div>
         <button
           type="button"
@@ -25,7 +26,7 @@ const ContactsPage = () => {
         <Filter />
       </div>
       <ContactsList showModal={showModal} togleModal={togleModal} />
-    </section>
+    </ContactsSection>
   );
 };
 

@@ -1,27 +1,36 @@
 import { useAuth } from 'hooks/useAuth';
 
-import { Link } from 'react-router-dom';
-
 import Logo from 'components/Logo';
 import MainNavList from 'components/MainNavList';
 import AuthNavList from 'components/AuthNavList';
 import UserMenu from 'components/UserMenu';
 
-import { MainHeader, NavContainer } from './AppBar.styled';
+import {
+  MainHeader,
+  Container,
+  SiteNav,
+  StyledLogoLink,
+  NavContainer,
+} from './AppBar.styled';
 
 const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
     <MainHeader>
-      <Link to={'/'} title="Home">
-        <Logo />
-      </Link>
+      <Container>
+        <SiteNav>
+          <StyledLogoLink to={'/'} title="Home">
+            <Logo />
+          </StyledLogoLink>
 
-      <NavContainer>
-        <MainNavList />
-        {isLoggedIn ? <UserMenu /> : <AuthNavList />}
-      </NavContainer>
+          {/* <NavContainer> */}
+          <MainNavList />
+          {!isLoggedIn && <AuthNavList />}
+          {/* </NavContainer> */}
+        </SiteNav>
+        {isLoggedIn && <UserMenu />}
+      </Container>
     </MainHeader>
   );
 };

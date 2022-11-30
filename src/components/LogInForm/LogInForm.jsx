@@ -10,7 +10,7 @@ import {
   IconClose,
   IconBox,
   IconEye,
-  StyledInputSbm,
+  BtnSbm,
   StyledLink,
   DecorBox,
   DecorBoxLine,
@@ -96,7 +96,7 @@ const LogInForm = () => {
         </FormControl>
       </FormGroup>
 
-      <StyledInputSbm type="submit" value="Log In" />
+      <BtnSbm type="submit">Log In</BtnSbm>
 
       <DecorBox>
         <DecorBoxLine />

@@ -8,10 +8,7 @@ export const StyledForm = styled.form`
   flex-direction: column;
   gap: ${p => p.theme.space[4]}px;
 
-  background: ${p => p.theme.colors.white};
-  border: 1px solid ${p => p.theme.colors.border};
-  border-radius: ${p => p.theme.space[2]}px;
-  box-shadow: 0px 5px 50px ${p => p.theme.colors.border};
+  z-index: 100;
 `;
 
 export const FormTitle = styled.h2`
@@ -27,13 +24,13 @@ export const FormControl = styled.div`
   position: relative;
   height: 40px;
   display: flex;
-  border: 1px solid ${p => p.theme.colors.border};
+  border: 2px solid ${p => p.theme.colors.border};
   border-radius: ${p => p.theme.space[2]}px;
   transition: border 100ms linear;
 
   :hover,
   :focus-within {
-    border: 1px solid ${p => p.theme.colors.btnAccent};
+    border: 2px solid ${p => p.theme.colors.btnAccent};
   }
 `;
 
@@ -71,18 +68,18 @@ export const IconEye = styled(IoEye)`
   height: ${p => p.theme.fontSizes[5]}px;
 `;
 
-export const StyledInputSbm = styled.input`
+export const BtnSbm = styled.button`
   height: 40px;
   font-weight: ${p => p.theme.fontWeights.bold};
   color: ${p => p.theme.colors.btnText};
   background: ${p => p.theme.colors.btnBackground};
   border-radius: ${p => p.theme.space[2]}px;
   border: 1px solid ${p => p.theme.colors.border};
-  outline: none;
   cursor: pointer;
   transition: color 100ms linear, background 100ms linear;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${p => p.theme.colors.white};
     background: ${p => p.theme.colors.btnAccent};
   }

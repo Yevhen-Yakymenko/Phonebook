@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
+import { Box } from 'components/Container/Container.styled';
+
 export const LogInSection = styled.section`
-  width: 100%;
-  padding: ${p => p.theme.space[4]}px;
-  display: flex;
+  margin: 0 auto;
   background: linear-gradient(270deg, #eaf0ff 0%, #f6f9ff 100%);
+  height: 100%;
+`;
+
+export const Container = styled(Box)`
+  display: flex;
 `;
 
 export const ContentBox = styled.div`

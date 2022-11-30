@@ -24,13 +24,13 @@ export const FormControl = styled.div`
   position: relative;
   height: 40px;
   display: flex;
-  border: 1px solid ${p => p.theme.colors.border};
+  border: 2px solid ${p => p.theme.colors.border};
   border-radius: ${p => p.theme.space[2]}px;
   transition: border 100ms linear;
 
   :hover,
   :focus-within {
-    border: 1px solid ${p => p.theme.colors.btnAccent};
+    border: 2px solid ${p => p.theme.colors.btnAccent};
   }
 `;
 
@@ -68,18 +68,18 @@ export const IconEye = styled(IoEye)`
   height: ${p => p.theme.fontSizes[5]}px;
 `;
 
-export const StyledInputSbm = styled.input`
+export const BtnSbm = styled.button`
   height: 40px;
   font-weight: ${p => p.theme.fontWeights.bold};
   color: ${p => p.theme.colors.btnText};
   background: ${p => p.theme.colors.btnBackground};
   border-radius: ${p => p.theme.space[2]}px;
   border: 1px solid ${p => p.theme.colors.border};
-  outline: none;
   cursor: pointer;
   transition: color 100ms linear, background 100ms linear;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${p => p.theme.colors.white};
     background: ${p => p.theme.colors.btnAccent};
   }
@@ -113,7 +113,8 @@ export const StyledLink = styled(NavLink)`
   cursor: pointer;
   transition: opacity 100ms linear, font-weight 100ms linear;
 
-  &:hover {
+  &:hover,
+  &:focus {
     font-weight: ${p => p.theme.fontWeights.bold};
     opacity: 0.8;
   }

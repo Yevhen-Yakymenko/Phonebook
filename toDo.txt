@@ -41,3 +41,72 @@ Components ===>>>
   },
   "include": ["src"]
 }
+
+переписати header:  навігацію вкласти в ul, і всі списки у nav
+<header>
+  <nav>
+    <Logo/>
+    <MainNavList/>
+    <AuthNavList/>
+  </nav>
+  <UserMenu/>
+</header>
+
+Logo = > {
+  <a>
+    <>
+      <span>Phone</span>
+      <Icon/>
+      <span>book</span>
+    </>     
+  </a>
+}
+
+MainNavList => {
+  <ul>
+    <li>
+      <a>Home</a>    
+    </li>
+    <li>
+      <a>Contacts</a>    
+    </li>  
+  </ul>
+}
+
+AuthNavList => {
+  <ul>
+    <li>
+      <a>Log In</a>    
+    </li>
+    <li>
+      <a>Sign Up</a>    
+    </li>  
+  </ul>
+}
+
+Для двох елементів? щоб не використовувати багато розмітки,
+можна використовувати div в якості обгортки для стилізації елементів.
+Тобто:
+
+AuthNavList => {
+  <div>
+    <a>Log In</a> 
+    <a>Sign Up</a> 
+  </div>
+}
+
+Для доступності використовують атрибут для будь якого тега arial-label=''.
+arial-label = 'Button log out' => використовується для підпису кнопок-іконок. 
+Дуже важливо його використовувати!!!
+
+Додати на лінки :focus
+
+Додати на всі сторінки заголовок та скрити його.
+Наприклад, для сторінки LogInPage заголовок <h1>Login page</h1>.
+
+Кнопри робимо за допомогою падінгів. Якщо треба однакової ширини, задаємо
+її ща допомогою min-width.
+
+display: inline-block; - строчно-блочний елемент
+тоді на нього працює
+text-align: center;

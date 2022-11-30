@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 
 import ContactForm from 'components/ContactsForm';
 
-import { ModalOverlay, ModalBody } from './Modal.styled';
+import { ModalOverlay, ModalBody, BtnClose, IconClose } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -34,14 +34,14 @@ const Modal = ({ onClose }) => {
     <ModalOverlay onClick={handleClick}>
       <ModalBody>
         <ContactForm closeModal={onClose} />
-        <button
+        <BtnClose
           type="button"
           onClick={() => {
             onClose();
           }}
         >
-          Close Modal
-        </button>
+          <IconClose />
+        </BtnClose>
       </ModalBody>
     </ModalOverlay>,
     modalRoot

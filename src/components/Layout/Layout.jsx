@@ -13,6 +13,7 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </Main>
+      <footer>Foter</footer>
     </>
   );
 };

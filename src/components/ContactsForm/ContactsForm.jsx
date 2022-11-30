@@ -1,13 +1,25 @@
+import { useState } from 'react';
 import {
   // useGetContactsQuery,
   useAddNewContactMutation,
 } from 'redux/contacts/contactsApi';
 
+import {
+  StyledForm,
+  FormGroup,
+  FormControl,
+  StyledLable,
+  StyledInput,
+  IconBox,
+  IconClose,
+  StyledInputSbm,
+} from './ContactsForm.styled';
+
 export default function ContactForm({ closeModal }) {
-  let firstName = '';
-  let lastName = '';
-  let phoneNumber = '';
-  let btnText = 'Add contact';
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [number, setNumber] = useState('');
+
   // const { data: contacts } = useGetContactsQuery();
   const [addNewContact, { isLoading, isSuccess }] = useAddNewContactMutation();
 
@@ -41,6 +53,22 @@ export default function ContactForm({ closeModal }) {
   // const checkContactNumber = number =>
   //   contacts.find(contact => contact.number === number);
 
+  const handleCange = e => {
+    const { name, value } = e.currentTarget;
+
+    if (name === 'firstName') {
+      setFirstName(value);
+    }
+
+    if (name === 'lastName') {
+      setLastName(value);
+    }
+
+    if (name === 'number') {
+      setNumber(value);
+    }
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -63,43 +91,69 @@ export default function ContactForm({ closeModal }) {
   // }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        First Name
-        <input
-          type="text"
-          name="firstName"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          defaultValue={firstName}
-        />
-      </label>
-      <label>
-        Last Name
-        <input
-          type="text"
-          name="lastName"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          defaultValue={lastName}
-        />
-      </label>
-      <label>
-        Number
-        <input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          defaultValue={phoneNumber}
-        />
-      </label>
-      <button type="submit" disabled={isLoading}>
-        {btnText}
-      </button>
-    </form>
+    <StyledForm onSubmit={handleSubmit}>
+      <FormGroup>
+        <StyledLable htmlFor="firstName">First Name</StyledLable>
+        <FormControl>
+          <StyledInput
+            type="text"
+            name="firstName"
+            id="firstName"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+            value={firstName}
+            onChange={handleCange}
+          />
+          {firstName.length > 0 && (
+            <IconBox onClick={() => setFirstName('')}>
+              <IconClose />
+            </IconBox>
+          )}
+        </FormControl>
+      </FormGroup>
+
+      <FormGroup>
+        <StyledLable htmlFor="lastName">Last Name</StyledLable>
+        <FormControl>
+          <StyledInput
+            type="text"
+            name="lastName"
+            id="lastName"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+            value={lastName}
+            onChange={handleCange}
+          />
+          {lastName.length > 0 && (
+            <IconBox onClick={() => setLastName('')}>
+              <IconClose />
+            </IconBox>
+          )}
+        </FormControl>
+      </FormGroup>
+      <FormGroup>
+        <StyledLable htmlFor="number">Number</StyledLable>
+        <FormControl>
+          <StyledInput
+            type="tel"
+            name="number"
+            id="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+            value={number}
+            onChange={handleCange}
+          />
+          {number.length > 0 && (
+            <IconBox onClick={() => setNumber('')}>
+              <IconClose />
+            </IconBox>
+          )}
+        </FormControl>
+      </FormGroup>
+      <StyledInputSbm type="submit" value="Add contact" disabled={isLoading} />
+    </StyledForm>
   );
 }

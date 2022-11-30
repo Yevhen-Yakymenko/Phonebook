@@ -11,7 +11,7 @@ import {
   IconClose,
   IconBox,
   IconEye,
-  StyledInputSbm,
+  BtnSbm,
 } from './SignUpForm.styled';
 
 const SignUpForm = () => {
@@ -115,7 +115,7 @@ const SignUpForm = () => {
         </FormControl>
       </FormGroup>
 
-      <StyledInputSbm type="submit" value="Sign Up" />
+      <BtnSbm type="submit">Sign Up</BtnSbm>
     </StyledForm>
   );
 };

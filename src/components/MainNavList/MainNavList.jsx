@@ -1,16 +1,20 @@
-import { NavWrapper, StyledLink } from './MainNavList.styled';
+import { NavList, NavItem, StyledLink } from './MainNavList.styled';
 
-const NavList = () => {
+const MainNavList = () => {
   return (
-    <NavWrapper>
-      <StyledLink to={'/'} title="Home">
-        Home
-      </StyledLink>
-      <StyledLink to={'contacts'} title="Contacts">
-        Contacts
-      </StyledLink>
-    </NavWrapper>
+    <NavList>
+      <NavItem>
+        <StyledLink to={'/'} title="Home">
+          Home
+        </StyledLink>
+      </NavItem>
+      <NavItem>
+        <StyledLink to={'contacts'} title="Contacts">
+          Contacts
+        </StyledLink>
+      </NavItem>
+    </NavList>
   );
 };
 
-export default NavList;
+export default MainNavList;

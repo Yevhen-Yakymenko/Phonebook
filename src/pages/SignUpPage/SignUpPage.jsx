@@ -1,13 +1,21 @@
 import SignUpForm from 'components/SignUpForm';
 
-import { SignUpSection, FormBox } from './SignUpPage.styled';
+import {
+  SignUpSection,
+  Container,
+  FormBox,
+  DecorBox,
+} from './SignUpPage.styled';
 
 const SignUpPage = () => {
   return (
     <SignUpSection>
-      <FormBox>
-        <SignUpForm />
-      </FormBox>
+      <Container>
+        <FormBox>
+          <SignUpForm />
+        </FormBox>
+        <DecorBox>PhoneBook</DecorBox>
+      </Container>
     </SignUpSection>
   );
 };

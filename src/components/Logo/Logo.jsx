@@ -1,12 +1,10 @@
-import { LogoBox, LogoText, LogoIcon } from './Logo.styled';
+import { LogoIcon } from './Logo.styled';
 
-const Logo = ({ logoColor = 'primary' }) => {
+const Logo = () => {
   return (
-    <LogoBox logoColor={logoColor}>
-      <LogoText>
-        Phone <LogoIcon /> book
-      </LogoText>
-    </LogoBox>
+    <>
+      Phone <LogoIcon /> book
+    </>
   );
 };
 
