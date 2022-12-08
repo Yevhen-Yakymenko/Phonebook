@@ -1,26 +1,42 @@
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { filterContacts } from 'redux/contactsSlice';
+
+import { selectFilter } from 'redux/contacts/contactsSelectors';
+import { filterContacts } from 'redux/contacts/contactsFilterSlice';
+
+import { FormField, StyledInput, IconBox, IconClose } from './Filter.styled';
 
 export default function Filter() {
+  const curentFilter = useSelector(selectFilter);
+  const [filter, setFilter] = useState(curentFilter);
   const dispatch = useDispatch();
 
   const handleChange = e => {
     const { value } = e.target;
 
+    setFilter(value);
+
     dispatch(filterContacts(value));
   };
 
   return (
-    <label>
-      Find contact by name
-      <input
+    <FormField>
+      <StyledInput
         type="text"
-        name="filter"
+        name="findContact"
+        id="findContact"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        placeholder="Find contact by name"
         title="Find contact by name."
-        required
+        value={filter}
         onChange={handleChange}
       />
-    </label>
+      {filter.length > 0 && (
+        <IconBox onClick={() => setFilter('')}>
+          <IconClose />
+        </IconBox>
+      )}
+    </FormField>
   );
 }
