@@ -12,8 +12,8 @@ import {
   StyledInput,
   IconBox,
   IconClose,
-  StyledInputSbm,
-} from './ContactsForm.styled';
+  BtnSbm,
+} from './ContactsFormAdd.styled';
 
 export default function ContactForm({ closeModal }) {
   const [firstName, setFirstName] = useState('');
@@ -53,7 +53,7 @@ export default function ContactForm({ closeModal }) {
   // const checkContactNumber = number =>
   //   contacts.find(contact => contact.number === number);
 
-  const handleCange = e => {
+  const handleChange = e => {
     const { name, value } = e.currentTarget;
 
     if (name === 'firstName') {
@@ -91,7 +91,7 @@ export default function ContactForm({ closeModal }) {
   // }
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm autoComplete="off" onSubmit={handleSubmit}>
       <FormGroup>
         <StyledLable htmlFor="firstName">First Name</StyledLable>
         <FormControl>
@@ -103,7 +103,7 @@ export default function ContactForm({ closeModal }) {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             value={firstName}
-            onChange={handleCange}
+            onChange={handleChange}
           />
           {firstName.length > 0 && (
             <IconBox onClick={() => setFirstName('')}>
@@ -124,7 +124,7 @@ export default function ContactForm({ closeModal }) {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             value={lastName}
-            onChange={handleCange}
+            onChange={handleChange}
           />
           {lastName.length > 0 && (
             <IconBox onClick={() => setLastName('')}>
@@ -144,7 +144,7 @@ export default function ContactForm({ closeModal }) {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             value={number}
-            onChange={handleCange}
+            onChange={handleChange}
           />
           {number.length > 0 && (
             <IconBox onClick={() => setNumber('')}>
@@ -153,7 +153,9 @@ export default function ContactForm({ closeModal }) {
           )}
         </FormControl>
       </FormGroup>
-      <StyledInputSbm type="submit" value="Add contact" disabled={isLoading} />
+      <BtnSbm type="submit" disabled={isLoading}>
+        Add contact
+      </BtnSbm>
     </StyledForm>
   );
 }

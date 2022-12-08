@@ -4,11 +4,13 @@ import 'modern-normalize';
 export const GlobalStyle = createGlobalStyle`
   html {
     width: 100vw; 
+    height: 100%;
     overflow-x: hidden;
     }
 
   body {
     margin: 0 auto;
+    height: 100%;
     font-family: ${p => p.theme.fonts.primary};
     font-weight: ${p => p.theme.fontWeights.regular};
     -webkit-font-smoothing: antialiased;

@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 export const NavList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   gap: ${p => p.theme.space[4]}px;
 `;
-
-export const NavItem = styled.li``;
 
 export const StyledLink = styled(NavLink)`
   display: block;
@@ -22,27 +21,29 @@ export const StyledLink = styled(NavLink)`
   text-transform: capitalize;
   color: ${p => p.theme.colors.navMenu};
 
-  transition: color 100ms linear, font-weight 100ms linear;
+  transition: color 200ms linear, font-weight 200ms linear;
 
-  &::before {
-    display: block;
-    content: '';
-
-    width: 100%;
-    height: 2px;
-
-    background-color: palevioletred;
-
+  &::after {
     position: absolute;
     right: 0;
     bottom: 24px;
+
+    display: block;
+    width: 100%;
+    height: 2px;
+
+    content: '';
+
+    border-radius: 1px;
+
+    background-color: palevioletred;
 
     opacity: 0;
 
     transition: opacity 200ms linear;
   }
 
-  &::after {
+  &::before {
     display: block;
     content: attr(title);
     font-weight: ${p => p.theme.fontWeights.bold};
@@ -55,7 +56,7 @@ export const StyledLink = styled(NavLink)`
     font-weight: ${p => p.theme.fontWeights.bold};
     color: palevioletred;
 
-    &::before {
+    &::after {
       opacity: 1;
     }
   }

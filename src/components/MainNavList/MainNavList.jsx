@@ -1,18 +1,18 @@
-import { NavList, NavItem, StyledLink } from './MainNavList.styled';
+import { NavList, StyledLink } from './MainNavList.styled';
 
 const MainNavList = () => {
   return (
     <NavList>
-      <NavItem>
+      <li>
         <StyledLink to={'/'} title="Home">
           Home
         </StyledLink>
-      </NavItem>
-      <NavItem>
+      </li>
+      <li>
         <StyledLink to={'contacts'} title="Contacts">
           Contacts
         </StyledLink>
-      </NavItem>
+      </li>
     </NavList>
   );
 };

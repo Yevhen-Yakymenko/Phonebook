@@ -10,7 +10,6 @@ import {
   Container,
   SiteNav,
   StyledLogoLink,
-  NavContainer,
 } from './AppBar.styled';
 
 const AppBar = () => {
@@ -24,10 +23,9 @@ const AppBar = () => {
             <Logo />
           </StyledLogoLink>
 
-          {/* <NavContainer> */}
           <MainNavList />
+
           {!isLoggedIn && <AuthNavList />}
-          {/* </NavContainer> */}
         </SiteNav>
         {isLoggedIn && <UserMenu />}
       </Container>

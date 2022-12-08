@@ -1,6 +1,11 @@
 import styled from 'styled-components';
+import { Box } from 'components/Container/Container.styled';
 
 export const ContactsSection = styled.section`
-  width: 100%;
-  background: ${p => p.theme.colors.background};
+  flex: 1 1 100%;
+  background-color: ${p => p.theme.colors.background};
+`;
+
+export const Container = styled(Box)`
+  height: 100%;
 `;

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Box } from 'components/Container/Container.styled';
 
 export const SignUpSection = styled.section`
+  flex: 1 1 100%;
+
   background: linear-gradient(270deg, #eaf0ff 0%, #f6f9ff 100%);
 `;
 
@@ -11,6 +13,7 @@ export const Container = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 export const FormBox = styled.div`

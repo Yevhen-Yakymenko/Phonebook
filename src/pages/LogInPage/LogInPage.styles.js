@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { Box } from 'components/Container/Container.styled';
 
 export const LogInSection = styled.section`
-  margin: 0 auto;
+  flex: 1 1 100%;
   background: linear-gradient(270deg, #eaf0ff 0%, #f6f9ff 100%);
-  height: 100%;
 `;
 
 export const Container = styled(Box)`
   display: flex;
+  height: 100%;
 `;
 
 export const ContentBox = styled.div`

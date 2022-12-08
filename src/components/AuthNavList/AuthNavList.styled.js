@@ -3,20 +3,21 @@ import styled from 'styled-components';
 
 export const BtnWrapper = styled.div`
   margin-left: auto;
-  /* flex-grow: 1; */
   display: flex;
-  /* justify-content: end; */
   gap: ${p => p.theme.space[3]}px;
 `;
 
 export const StyledLink = styled(NavLink)`
   min-width: 100px;
   padding: ${p => p.theme.space[2]}px ${p => p.theme.space[3]}px;
+
   font-weight: ${p => p.theme.fontWeights.medium};
   text-align: center;
+
   border: 1px solid transparent;
   border-radius: ${p => p.theme.space[2]}px;
-  transition: font-weight 100ms linear;
+
+  transition: font-weight 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :focus {
@@ -35,21 +36,22 @@ export const StyledLink = styled(NavLink)`
 
 export const LinkLogIn = styled(StyledLink)`
   color: ${p => p.theme.colors.btnText};
-  background: ${p => p.theme.colors.btnBackground};
+  background-color: ${p => p.theme.colors.btnBackground};
   border-color: ${p => p.theme.colors.border};
-  transition: color 100ms linear, background 100ms linear;
+  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :focus {
     color: ${p => p.theme.colors.white};
-    background: ${p => p.theme.colors.btnAccent};
+    background-color: ${p => p.theme.colors.btnAccent};
   }
 `;
 
 export const LinkSignUp = styled(StyledLink)`
   color: ${p => p.theme.colors.white};
-  background: ${p => p.theme.colors.btnAccent};
-  transition: opacity 100ms linear;
+  background-color: ${p => p.theme.colors.btnAccent};
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :focus {

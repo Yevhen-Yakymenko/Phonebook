@@ -45,7 +45,7 @@ export const contactsApi = createApi({
         query: data => ({
           url: `/contacts/${data.id}`,
           method: 'patch',
-          data: data,
+          data: { name: data.name, number: data.number },
         }),
         invalidatesTags: ['Contact'],
       }),
@@ -58,44 +58,10 @@ export const contactsApi = createApi({
       }),
     };
   },
-  // endpoints: builder => ({
-  //   getContacts: builder.query({
-  //     query: () => '/contacts',
-  //     providesTags: ['Contact'],
-  //   }),
-  //   getContactById: builder.query({
-  //     query: contactId => `/posts/${contactId}`,
-  //     providesTags: ['Contact'],
-  //   }),
-  //   addNewContact: builder.mutation({
-  //     query: newContact => ({
-  //       url: '/contacts',
-  //       method: 'POST',
-  //       body: newContact,
-  //     }),
-  //     invalidatesTags: ['Contact'],
-  //   }),
-  //   updateContact: builder.mutation({
-  //     query: data => ({
-  //       url: `/contacts/${data.id}`,
-  //       method: 'DELETE',
-  //       body: data,
-  //     }),
-  //     invalidatesTags: ['Contact'],
-  //   }),
-  //   deleteContact: builder.mutation({
-  //     query: contactId => ({
-  //       url: `/contacts/${contactId}`,
-  //       method: 'DELETE',
-  //     }),
-  //     invalidatesTags: ['Contact'],
-  //   }),
-  // }),
 });
 
 export const {
   useGetContactsQuery,
-  // useGetContactByIdQuery,
   useAddNewContactMutation,
   useUpdateContactMutation,
   useDeleteContactMutation,

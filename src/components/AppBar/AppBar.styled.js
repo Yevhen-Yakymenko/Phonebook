@@ -15,6 +15,7 @@ export const Container = styled(Box)`
 `;
 
 export const SiteNav = styled.nav`
+  width: 100%;
   display: flex;
   align-items: center;
 `;
@@ -23,12 +24,6 @@ export const StyledLogoLink = styled(NavLink)`
   margin-right: ${p => p.theme.space[5]}px;
 
   font-size: ${p => p.theme.fontSizes[7]}px;
-  font-weight: 900;
+  font-weight: ${p => p.theme.fontWeights.bold};
   color: palevioletred;
-`;
-
-export const NavContainer = styled.div`
-  flex-grow: 2;
-  display: flex;
-  align-items: center;
 `;

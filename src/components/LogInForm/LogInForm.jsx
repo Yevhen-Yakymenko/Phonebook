@@ -4,12 +4,13 @@ import { useLogInMutation } from 'redux/user/userApi';
 import {
   StyledForm,
   FormGroup,
-  FormControl,
+  FormField,
   StyledLable,
   StyledInput,
   IconClose,
   IconBox,
   IconEye,
+  IconEyeOff,
   BtnSbm,
   StyledLink,
   DecorBox,
@@ -23,7 +24,7 @@ const LogInForm = () => {
   const [inputType, setInputType] = useState('password');
   const [logIn] = useLogInMutation();
 
-  const handleCange = e => {
+  const handleChange = e => {
     const { name, value } = e.currentTarget;
 
     if (name === 'email') {
@@ -61,39 +62,39 @@ const LogInForm = () => {
     <StyledForm autoComplete="off" onSubmit={handleSubmit}>
       <FormGroup>
         <StyledLable htmlFor="email">E-mail</StyledLable>
-        <FormControl>
+        <FormField>
           <StyledInput
             type="email"
             name="email"
             id="email"
             required
             value={email}
-            onChange={handleCange}
+            onChange={handleChange}
           />
           {email.length > 0 && (
             <IconBox onClick={() => handleRemove()}>
               <IconClose />
             </IconBox>
           )}
-        </FormControl>
+        </FormField>
       </FormGroup>
 
       <FormGroup>
         <StyledLable htmlFor="password">Password</StyledLable>
-        <FormControl>
+        <FormField>
           <StyledInput
             type={inputType}
             name="password"
             id="password"
             required
-            onChange={handleCange}
+            onChange={handleChange}
           />
           {password.length > 0 && (
             <IconBox onClick={() => toglePassword()}>
-              <IconEye />
+              {inputType === 'password' ? <IconEye /> : <IconEyeOff />}
             </IconBox>
           )}
-        </FormControl>
+        </FormField>
       </FormGroup>
 
       <BtnSbm type="submit">Log In</BtnSbm>

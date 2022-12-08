@@ -5,12 +5,13 @@ import {
   StyledForm,
   FormTitle,
   FormGroup,
-  FormControl,
+  FormField,
   StyledLable,
   StyledInput,
-  IconClose,
   IconBox,
+  IconClose,
   IconEye,
+  IconEyeOff,
   BtnSbm,
 } from './SignUpForm.styled';
 
@@ -21,7 +22,7 @@ const SignUpForm = () => {
   const [inputType, setInputType] = useState('password');
   const [signUp] = useSignUpMutation();
 
-  const handleCange = e => {
+  const handleChange = e => {
     const { name, value } = e.currentTarget;
 
     if (name === 'name') {
@@ -61,58 +62,58 @@ const SignUpForm = () => {
       <FormTitle>Sign Up</FormTitle>
       <FormGroup>
         <StyledLable htmlFor="name">Name</StyledLable>
-        <FormControl>
+        <FormField>
           <StyledInput
             type="text"
             name="name"
             id="name"
             required
             value={name}
-            onChange={handleCange}
+            onChange={handleChange}
           />
           {name.length > 0 && (
             <IconBox onClick={() => setName('')}>
               <IconClose />
             </IconBox>
           )}
-        </FormControl>
+        </FormField>
       </FormGroup>
 
       <FormGroup>
         <StyledLable htmlFor="email">E-mail</StyledLable>
-        <FormControl>
+        <FormField>
           <StyledInput
             type="email"
             name="email"
             id="email"
             required
             value={email}
-            onChange={handleCange}
+            onChange={handleChange}
           />
           {email.length > 0 && (
             <IconBox onClick={() => setEmail('')}>
               <IconClose />
             </IconBox>
           )}
-        </FormControl>
+        </FormField>
       </FormGroup>
 
       <FormGroup>
         <StyledLable htmlFor="password">Password</StyledLable>
-        <FormControl>
+        <FormField>
           <StyledInput
             type={inputType}
             name="password"
             id="password"
             required
-            onChange={handleCange}
+            onChange={handleChange}
           />
           {password.length > 0 && (
             <IconBox onClick={() => toglePassword()}>
-              <IconEye />
+              {inputType === 'password' ? <IconEye /> : <IconEyeOff />}
             </IconBox>
           )}
-        </FormControl>
+        </FormField>
       </FormGroup>
 
       <BtnSbm type="submit">Sign Up</BtnSbm>

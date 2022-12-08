@@ -5,7 +5,7 @@ import { useGetContactsQuery } from 'redux/contacts/contactsApi';
 import { selectFilter } from 'redux/contacts/contactsSelectors';
 import ContacsListItem from 'components/ContactsListItem';
 
-export default function ContactList({ showModal, togleModal }) {
+export default function ContactList() {
   const {
     data: contacts,
     isLoading,
@@ -33,12 +33,7 @@ export default function ContactList({ showModal, togleModal }) {
       ) : filteredContacts?.length > 0 ? (
         <ul>
           {filteredContacts.map(contact => (
-            <ContacsListItem
-              key={contact.id}
-              contact={contact}
-              showModal={showModal}
-              togleModal={togleModal}
-            />
+            <ContacsListItem key={contact.id} contact={contact} />
           ))}
         </ul>
       ) : (

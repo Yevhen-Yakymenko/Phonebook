@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-// import { useUpdateContactMutation } from 'redux/contacts/apiContactsSlice';
-
-import ContactForm from 'components/ContactsForm';
-
 import { ModalOverlay, ModalBody, BtnClose, IconClose } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, children }) => {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -33,7 +29,8 @@ const Modal = ({ onClose }) => {
   return createPortal(
     <ModalOverlay onClick={handleClick}>
       <ModalBody>
-        <ContactForm closeModal={onClose} />
+        {children}
+
         <BtnClose
           type="button"
           onClick={() => {
