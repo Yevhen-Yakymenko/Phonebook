@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { useLogInMutation } from 'redux/user/userApi';
 
+import { IoIosMail, IoIosLock } from 'react-icons/io';
+import { IoCloseCircleSharp, IoEye, IoEyeOff } from 'react-icons/io5';
+
+import LogoIcon from 'components/LogoIcon';
 import {
-  StyledForm,
-  FormGroup,
+  FormContainer,
+  FormTitle,
+  FormLable,
   FormField,
-  StyledLable,
-  StyledInput,
-  IconClose,
-  IconBox,
-  IconEye,
-  IconEyeOff,
-  BtnSbm,
+  FormBtnSbm,
+} from 'components/FormElements';
+
+import {
   StyledLink,
   DecorBox,
   DecorBoxLine,
@@ -23,18 +25,6 @@ const LogInForm = () => {
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
   const [logIn] = useLogInMutation();
-
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
-
-    if (name === 'email') {
-      setEmail(value);
-    }
-
-    if (name === 'password') {
-      setPassword(value);
-    }
-  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -59,45 +49,41 @@ const LogInForm = () => {
   };
 
   return (
-    <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-      <FormGroup>
-        <StyledLable htmlFor="email">E-mail</StyledLable>
-        <FormField>
-          <StyledInput
-            type="email"
-            name="email"
-            id="email"
-            required
-            value={email}
-            onChange={handleChange}
-          />
-          {email.length > 0 && (
-            <IconBox onClick={() => handleRemove()}>
-              <IconClose />
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+    <FormContainer autoComplete="off" onSubmit={handleSubmit}>
+      <FormTitle titleIcon={<LogoIcon />}>Log into your account</FormTitle>
+      <div>
+        <FormLable htmlFor="email">E-mail</FormLable>
+        <FormField
+          state={email}
+          setState={setEmail}
+          func={handleRemove}
+          iconBefore={<IoIosMail />}
+          iconAfter={<IoCloseCircleSharp />}
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your e-mail"
+          required
+        />
+      </div>
 
-      <FormGroup>
-        <StyledLable htmlFor="password">Password</StyledLable>
-        <FormField>
-          <StyledInput
-            type={inputType}
-            name="password"
-            id="password"
-            required
-            onChange={handleChange}
-          />
-          {password.length > 0 && (
-            <IconBox onClick={() => toglePassword()}>
-              {inputType === 'password' ? <IconEye /> : <IconEyeOff />}
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+      <div>
+        <FormLable htmlFor="password">Password</FormLable>
+        <FormField
+          state={password}
+          setState={setPassword}
+          func={toglePassword}
+          iconBefore={<IoIosLock />}
+          iconAfter={inputType === 'password' ? <IoEye /> : <IoEyeOff />}
+          type={inputType}
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
 
-      <BtnSbm type="submit">Log In</BtnSbm>
+      <FormBtnSbm type="submit">Log In</FormBtnSbm>
 
       <DecorBox>
         <DecorBoxLine />
@@ -106,7 +92,7 @@ const LogInForm = () => {
       </DecorBox>
 
       <StyledLink to={'/signup'}>Create new account</StyledLink>
-    </StyledForm>
+    </FormContainer>
   );
 };
 

@@ -1,19 +1,17 @@
 import { useState } from 'react';
 import { useSignUpMutation } from 'redux/user/userApi';
+import { IoIosMail, IoIosLock, IoIosPerson } from 'react-icons/io';
+import { IoCloseCircleSharp, IoEye, IoEyeOff } from 'react-icons/io5';
 
+import LogoIcon from 'components/LogoIcon';
 import {
-  StyledForm,
   FormTitle,
-  FormGroup,
+  FormLable,
   FormField,
-  StyledLable,
-  StyledInput,
-  IconBox,
-  IconClose,
-  IconEye,
-  IconEyeOff,
-  BtnSbm,
-} from './SignUpForm.styled';
+  FormBtnSbm,
+} from 'components/FormElements';
+
+import { StyledForm } from './SignUpForm.styled';
 
 const SignUpForm = () => {
   const [name, setName] = useState('');
@@ -21,22 +19,6 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
   const [signUp] = useSignUpMutation();
-
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
-
-    if (name === 'name') {
-      setName(value);
-    }
-
-    if (name === 'email') {
-      setEmail(value);
-    }
-
-    if (name === 'password') {
-      setPassword(value);
-    }
-  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -59,64 +41,56 @@ const SignUpForm = () => {
 
   return (
     <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-      <FormTitle>Sign Up</FormTitle>
-      <FormGroup>
-        <StyledLable htmlFor="name">Name</StyledLable>
-        <FormField>
-          <StyledInput
-            type="text"
-            name="name"
-            id="name"
-            required
-            value={name}
-            onChange={handleChange}
-          />
-          {name.length > 0 && (
-            <IconBox onClick={() => setName('')}>
-              <IconClose />
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+      <FormTitle titleIcon={<LogoIcon />}>Get started your book</FormTitle>
+      <div>
+        <FormLable htmlFor="name">Name</FormLable>
+        <FormField
+          state={name}
+          setState={setName}
+          func={() => setName('')}
+          iconBefore={<IoIosPerson />}
+          iconAfter={<IoCloseCircleSharp />}
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
 
-      <FormGroup>
-        <StyledLable htmlFor="email">E-mail</StyledLable>
-        <FormField>
-          <StyledInput
-            type="email"
-            name="email"
-            id="email"
-            required
-            value={email}
-            onChange={handleChange}
-          />
-          {email.length > 0 && (
-            <IconBox onClick={() => setEmail('')}>
-              <IconClose />
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+      <div>
+        <FormLable htmlFor="email">E-mail</FormLable>
+        <FormField
+          state={email}
+          setState={setEmail}
+          func={() => setEmail('')}
+          iconBefore={<IoIosMail />}
+          iconAfter={<IoCloseCircleSharp />}
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your e-mail"
+          required
+        />
+      </div>
 
-      <FormGroup>
-        <StyledLable htmlFor="password">Password</StyledLable>
-        <FormField>
-          <StyledInput
-            type={inputType}
-            name="password"
-            id="password"
-            required
-            onChange={handleChange}
-          />
-          {password.length > 0 && (
-            <IconBox onClick={() => toglePassword()}>
-              {inputType === 'password' ? <IconEye /> : <IconEyeOff />}
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+      <div>
+        <FormLable htmlFor="password">Password</FormLable>
+        <FormField
+          state={password}
+          setState={setPassword}
+          func={toglePassword}
+          iconBefore={<IoIosLock />}
+          iconAfter={inputType === 'password' ? <IoEye /> : <IoEyeOff />}
+          type={inputType}
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
 
-      <BtnSbm type="submit">Sign Up</BtnSbm>
+      <FormBtnSbm type="submit">Sign Up</FormBtnSbm>
     </StyledForm>
   );
 };

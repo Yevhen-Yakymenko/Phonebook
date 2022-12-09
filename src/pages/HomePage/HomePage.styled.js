@@ -4,10 +4,9 @@ import styled from 'styled-components';
 import { GiCandlestickPhone, GiBlackBook } from 'react-icons/gi';
 import { AiOutlinePlus } from 'react-icons/ai';
 
-import { Box } from 'components/Container/Container.styled';
+import { StyledSection, Container } from 'components/GlobalStyle';
 
-export const HomePageSection = styled.section`
-  flex: 1 1 100%;
+export const HomePageSection = styled(StyledSection)`
   position: relative;
   background: linear-gradient(180deg, #f4f7ff 0%, #f1f5ff 100%);
 `;
@@ -25,7 +24,7 @@ export const DecorBox = styled.div`
   );
 `;
 
-export const Container = styled(Box)`
+export const StyledContainer = styled(Container)`
   height: 100%;
   display: flex;
   justify-content: center;

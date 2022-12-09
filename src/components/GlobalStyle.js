@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
@@ -45,4 +46,18 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;    
     overflow: hidden;
   }
+`;
+
+export const StyledSection = styled.section`
+  flex: 1 1 100%;
+  padding-top: ${p => p.theme.space[4]}px;
+  padding-bottom: ${p => p.theme.space[4]}px;
+`;
+
+export const Container = styled.div`
+  width: 1432px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: ${p => p.theme.space[3]}px;
+  padding-right: ${p => p.theme.space[3]}px;
 `;

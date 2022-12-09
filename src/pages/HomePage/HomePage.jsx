@@ -1,9 +1,9 @@
-// import Container from 'components/Container';
+import PageTitle from 'components/PageTitle';
 
 import {
   HomePageSection,
   DecorBox,
-  Container,
+  StyledContainer,
   ContentBox,
   ContentText,
   ContentLink,
@@ -15,8 +15,9 @@ import {
 const HomePage = () => {
   return (
     <HomePageSection>
+      <PageTitle>Phonebook app home page</PageTitle>
       <DecorBox></DecorBox>
-      <Container>
+      <StyledContainer>
         <ContentBox>
           <ContentText>do you want to know what it means?</ContentText>
           <ContentLink to={'login'}>
@@ -26,7 +27,7 @@ const HomePage = () => {
           </ContentLink>
           <ContentText>click on the link above</ContentText>
         </ContentBox>
-      </Container>
+      </StyledContainer>
     </HomePageSection>
   );
 };

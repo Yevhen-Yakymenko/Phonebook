@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { Box } from 'components/Container/Container.styled';
+import { StyledSection, Container } from 'components/GlobalStyle';
 
-export const ContactsSection = styled.section`
-  flex: 1 1 100%;
+export const ContactsSection = styled(StyledSection)`
   background-color: ${p => p.theme.colors.background};
 `;
 
-export const Container = styled(Box)`
+export const StyledContainer = styled(Container)`
   height: 100%;
 `;

@@ -1,9 +1,10 @@
-import Logo from 'components/Logo';
+import PageTitle from 'components/PageTitle';
+import LogoIcon from 'components/LogoIcon';
 import LogInForm from 'components/LogInForm';
 
 import {
   LogInSection,
-  Container,
+  StyledContainer,
   ContentBox,
   ContentWrapper,
   ContentMainText,
@@ -14,12 +15,13 @@ import {
 const LogInPage = () => {
   return (
     <LogInSection>
-      <Container>
+      <StyledContainer>
+        <PageTitle>Log in page</PageTitle>
         <ContentBox>
           <ContentWrapper>
             <ContentMainText>desktop app</ContentMainText>
             <h2>
-              <Logo />
+              Phone <LogoIcon /> book
             </h2>
             <ContentText>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -30,7 +32,7 @@ const LogInPage = () => {
         <FormBox>
           <LogInForm />
         </FormBox>
-      </Container>
+      </StyledContainer>
     </LogInSection>
   );
 };

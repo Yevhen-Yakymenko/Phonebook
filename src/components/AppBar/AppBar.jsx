@@ -1,24 +1,20 @@
-import { useAuth } from 'hooks/useAuth';
+// import { useAuth } from 'hooks/useAuth';
 
-import Logo from 'components/Logo';
-import MainNavList from 'components/MainNavList';
-import AuthNavList from 'components/AuthNavList';
-import UserMenu from 'components/UserMenu';
+// import Logo from 'components/Logo';
+// import MainNavList from 'components/MainNavList';
+// import AuthNavList from 'components/AuthNavList';
+// import UserMenu from 'components/UserMenu';
 
-import {
-  MainHeader,
-  Container,
-  SiteNav,
-  StyledLogoLink,
-} from './AppBar.styled';
+import { MainHeader, Container } from './AppBar.styled';
 
-const AppBar = () => {
-  const { isLoggedIn } = useAuth();
+const AppBar = ({ children }) => {
+  // const { isLoggedIn } = useAuth();
 
   return (
     <MainHeader>
       <Container>
-        <SiteNav>
+        {children}
+        {/* <SiteNav>
           <StyledLogoLink to={'/'} title="Home">
             <Logo />
           </StyledLogoLink>
@@ -26,8 +22,8 @@ const AppBar = () => {
           <MainNavList />
 
           {!isLoggedIn && <AuthNavList />}
-        </SiteNav>
-        {isLoggedIn && <UserMenu />}
+        </SiteNav> */}
+        {/* {isLoggedIn && <UserMenu />} */}
       </Container>
     </MainHeader>
   );
