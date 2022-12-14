@@ -1,1 +1,0 @@
-export { FormLable } from './FormLable';

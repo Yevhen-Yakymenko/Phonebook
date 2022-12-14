@@ -11,7 +11,7 @@ import { IoCloseCircleSharp, IoCallSharp } from 'react-icons/io5';
 import {
   FormContainer,
   FormTitle,
-  FormLable,
+  FormLabel,
   FormField,
   FormBtnSbm,
 } from 'components/FormElements';
@@ -81,7 +81,7 @@ export default function ContactForm({ contact, closeModal }) {
     <FormContainer autoComplete="off" onSubmit={handleSubmit}>
       <FormTitle titleIcon={<FaUserEdit />}>Edit contact</FormTitle>
       <div>
-        <FormLable htmlFor="firstName">First Name</FormLable>
+        <FormLabel htmlFor="firstName">First Name</FormLabel>
         <FormField
           state={firstName}
           setState={setFirstName}
@@ -98,7 +98,7 @@ export default function ContactForm({ contact, closeModal }) {
         />
       </div>
       <div>
-        <FormLable htmlFor="lastName">Last Name</FormLable>
+        <FormLabel htmlFor="lastName">Last Name</FormLabel>
         <FormField
           state={lastName}
           setState={setLastName}
@@ -115,7 +115,7 @@ export default function ContactForm({ contact, closeModal }) {
         />
       </div>
       <div>
-        <FormLable htmlFor="number">Number</FormLable>
+        <FormLabel htmlFor="number">Number</FormLabel>
         <FormField
           state={curentNnumber}
           setState={setCurentNnumber}

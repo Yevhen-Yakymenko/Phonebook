@@ -41,12 +41,14 @@ export const BtnClose = styled.button`
   cursor: pointer;
 
   transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    scale 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :focus-within {
     color: ${p => p.theme.colors.btnText};
     border-color: ${p => p.theme.colors.btnAccent};
+    scale: 1.05;
   }
 `;
 

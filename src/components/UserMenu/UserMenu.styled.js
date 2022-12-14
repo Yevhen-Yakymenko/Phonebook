@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FiLogOut } from 'react-icons/fi';
 
 export const MenuWrapper = styled.div`
   margin-left: auto;
@@ -18,32 +17,31 @@ export const UserName = styled.p`
 `;
 
 export const BtnLogOut = styled.button`
+  padding-top: ${p => p.theme.space[2]}px;
+  padding-bottom: ${p => p.theme.space[2]}px;
+  padding-left: ${p => p.theme.space[3]}px;
+  padding-right: ${p => p.theme.space[3]}px;
+
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: ${p => p.theme.space[4]}px;
-  height: ${p => p.theme.space[4]}px;
-  padding: 0;
+  gap: 8px;
 
-  background: ${p => p.theme.colors.btnBackground};
-  color: ${p => p.theme.colors.text};
-  border: 2px solid ${p => p.theme.colors.btnAccent};
-  border-radius: 50%;
+  font-weight: ${p => p.theme.fontWeights.bold};
+  line-height: 1.25;
+  color: ${p => p.theme.colors.textAccent};
+
+  background-color: ${p => p.theme.colors.btnBgSecondary};
+
+  border: 1px solid transparent;
+  border-radius: ${p => p.theme.space[2]}px;
+
   cursor: pointer;
-  transition: color 100ms linear, border 100ms linear, background 100ms linear;
+  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
-    /* color: ${p => p.theme.colors.white};
-    border: 2px solid ${p => p.theme.colors.border};
-    background: ${p => p.theme.colors.btnAccent}; */
-    background: #ffd7d7;
-    color: #d43f3f;
-    border: 2px solid #d43f3f;
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.white};
+    background-color: ${p => p.theme.colors.textAccent};
   }
-`;
-
-export const BtnIcon = styled(FiLogOut)`
-  width: ${p => p.theme.fontSizes[4]}px;
-  height: ${p => p.theme.fontSizes[4]}px;
-  vertical-align: middle;
 `;

@@ -14,7 +14,7 @@ import {
 import {
   FormContainer,
   FormTitle,
-  FormLable,
+  FormLabel,
   FormField,
   FormBtnSbm,
 } from 'components/FormElements';
@@ -82,7 +82,7 @@ export default function ContactForm({ closeModal }) {
     <FormContainer autoComplete="off" onSubmit={handleSubmit}>
       <FormTitle titleIcon={<IoPersonAddSharp />}>Create new contact</FormTitle>
       <div>
-        <FormLable htmlFor="firstName">First Name</FormLable>
+        <FormLabel htmlFor="firstName">First Name</FormLabel>
         <FormField
           state={firstName}
           setState={setFirstName}
@@ -99,7 +99,7 @@ export default function ContactForm({ closeModal }) {
         />
       </div>
       <div>
-        <FormLable htmlFor="lastName">Last Name</FormLable>
+        <FormLabel htmlFor="lastName">Last Name</FormLabel>
         <FormField
           state={lastName}
           setState={setLastName}
@@ -116,7 +116,7 @@ export default function ContactForm({ closeModal }) {
         />
       </div>
       <div>
-        <FormLable htmlFor="number">Number</FormLable>
+        <FormLabel htmlFor="number">Number</FormLabel>
         <FormField
           state={number}
           setState={setNumber}

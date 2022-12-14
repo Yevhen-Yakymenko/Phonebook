@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Box } from 'components/Container/Container.styled';
+import { Container } from 'components/GlobalStyle';
 
 export const MainHeader = styled.header`
   background-color: ${p => p.theme.colors.white};
@@ -8,7 +8,7 @@ export const MainHeader = styled.header`
   border-bottom: 1px solid ${p => p.theme.colors.border};
 `;
 
-export const Container = styled(Box)`
+export const StyledContainer = styled(Container)`
   min-height: 80px;
   display: flex;
   align-items: center;

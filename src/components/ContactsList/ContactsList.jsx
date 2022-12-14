@@ -5,40 +5,60 @@ import { useGetContactsQuery } from 'redux/contacts/contactsApi';
 import { selectFilter } from 'redux/contacts/contactsSelectors';
 import ContacsListItem from 'components/ContactsListItem';
 
+import { StyledContactsList, StyledText } from './ContactsList.style';
+
+const MessageText = ({ children }) => {
+  return <StyledText>{children}</StyledText>;
+};
+
 export default function ContactList() {
   const {
     data: contacts,
     isLoading,
     isSuccess,
-    // isError,
-    // error,
+    isError,
+    error,
   } = useGetContactsQuery();
 
   const filter = useSelector(selectFilter);
 
   const filteredContacts = useMemo(() => {
-    if (isSuccess) {
-      return filter === ''
-        ? contacts
-        : contacts.filter(({ name }) =>
-            name.toLowerCase().includes(filter.toLowerCase())
-          );
+    if (filter === '') {
+      return contacts;
     }
-  }, [contacts, filter, isSuccess]);
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(filter.toLowerCase())
+    );
+  }, [contacts, filter]);
 
-  return (
-    <>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : filteredContacts?.length > 0 ? (
-        <ul>
-          {filteredContacts.map(contact => (
-            <ContacsListItem key={contact.id} contact={contact} />
-          ))}
-        </ul>
-      ) : (
-        <p>You don't have any contacts yet. Try adding a new contact.</p>
-      )}
-    </>
-  );
+  const isHaveFilterContacts =
+    filteredContacts?.length > 0 ? (
+      <StyledContactsList>
+        {filteredContacts.map(contact => (
+          <ContacsListItem key={contact.id} contact={contact} />
+        ))}
+      </StyledContactsList>
+    ) : (
+      <MessageText>You don't have any contacts with that name.</MessageText>
+    );
+
+  const isHaveContacts =
+    contacts?.length > 0 ? (
+      isHaveFilterContacts
+    ) : (
+      <MessageText>
+        You don't have any contacts yet. Try adding a new contact.
+      </MessageText>
+    );
+
+  const isGetContacts = () => {
+    if (isSuccess) {
+      return isHaveContacts;
+    }
+    if (isError) {
+      return <MessageText>{error.data}</MessageText>;
+    }
+  };
+
+  return <>{isLoading ? <p>Loading...</p> : isGetContacts()}</>;
 }

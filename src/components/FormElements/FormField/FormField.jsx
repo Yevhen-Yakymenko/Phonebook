@@ -22,7 +22,8 @@ export const FormField = ({
   return (
     <FieldBox>
       <StyledInput {...props} value={state} onChange={handleChange} />
-      <IconBoxBefore>{iconBefore}</IconBoxBefore>
+      {iconBefore && <IconBoxBefore>{iconBefore}</IconBoxBefore>}
+
       {state.length > 0 && (
         <IconBoxAfter type="button" onClick={() => func()}>
           {iconAfter}

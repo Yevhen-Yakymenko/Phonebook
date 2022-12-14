@@ -5,7 +5,7 @@ export const theme = {
 
   colors: {
     text: '#8D96BD',
-    textAccent: '#d87093',
+    textAccent: '#d43f3f',
     background: '#F5F8FF',
     bodyBackground: '#E4E6F0',
     heading: '#3D4F9F',
@@ -14,6 +14,7 @@ export const theme = {
     border: '#D8E3FE',
     btnText: '#3A79FF',
     btnBackground: '#D2E1FF',
+    btnBgSecondary: '#ffd7d7',
     btnAccent: '#4C85FF',
     logo: '#5E81FE',
     white: '#FFFFFF',

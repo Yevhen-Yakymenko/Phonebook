@@ -8,7 +8,7 @@ import LogoIcon from 'components/LogoIcon';
 import {
   FormContainer,
   FormTitle,
-  FormLable,
+  FormLabel,
   FormField,
   FormBtnSbm,
 } from 'components/FormElements';
@@ -52,7 +52,7 @@ const LogInForm = () => {
     <FormContainer autoComplete="off" onSubmit={handleSubmit}>
       <FormTitle titleIcon={<LogoIcon />}>Log into your account</FormTitle>
       <div>
-        <FormLable htmlFor="email">E-mail</FormLable>
+        <FormLabel htmlFor="email">E-mail</FormLabel>
         <FormField
           state={email}
           setState={setEmail}
@@ -68,7 +68,7 @@ const LogInForm = () => {
       </div>
 
       <div>
-        <FormLable htmlFor="password">Password</FormLable>
+        <FormLabel htmlFor="password">Password</FormLabel>
         <FormField
           state={password}
           setState={setPassword}

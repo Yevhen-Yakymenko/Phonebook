@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { FaEdit } from 'react-icons/fa';
+import { MdEdit, MdDeleteForever } from 'react-icons/md';
 
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 
@@ -9,8 +11,11 @@ import {
   ContactsItem,
   ContactName,
   ContactNumber,
+  ContactCtrl,
   ContactEditBtn,
   ContactDeleteBtn,
+  BtnIconBox,
+  BtnText,
 } from './ContacsListItem.styled.js';
 
 const ContactItem = ({ contact }) => {
@@ -24,24 +29,35 @@ const ContactItem = ({ contact }) => {
   return (
     <ContactsItem>
       <ContactName>{name}</ContactName>
+
       <ContactNumber>{number}</ContactNumber>
-      <ContactEditBtn
-        type="button"
-        onClick={() => {
-          togleModal();
-        }}
-      >
-        Edit
-      </ContactEditBtn>
-      <ContactDeleteBtn
-        type="button"
-        onClick={() => {
-          deleteContact(id);
-        }}
-        disabled={isLoading}
-      >
-        Delete
-      </ContactDeleteBtn>
+
+      <ContactCtrl>
+        <ContactEditBtn
+          type="button"
+          onClick={() => {
+            togleModal();
+          }}
+        >
+          <BtnIconBox>
+            <MdEdit />
+          </BtnIconBox>{' '}
+          <BtnText>Edit</BtnText>
+        </ContactEditBtn>
+        <ContactDeleteBtn
+          type="button"
+          onClick={() => {
+            deleteContact(id);
+          }}
+          disabled={isLoading}
+        >
+          <BtnIconBox>
+            <MdDeleteForever />
+          </BtnIconBox>{' '}
+          <BtnText>Delete</BtnText>
+        </ContactDeleteBtn>
+      </ContactCtrl>
+
       {showModal && (
         <Modal onClose={togleModal}>
           <ContactsFormEdit contact={contact} closeModal={togleModal} />

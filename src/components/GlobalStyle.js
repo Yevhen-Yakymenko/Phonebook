@@ -20,6 +20,11 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${p => p.theme.colors.bodyBackground};
   }
 
+  main {
+    flex: 1 1 100%;
+    display: flex;
+  }
+
   a {
     text-decoration: none;
   }
@@ -55,9 +60,15 @@ export const StyledSection = styled.section`
 `;
 
 export const Container = styled.div`
-  width: 1432px;
+  max-width: 1432px;
   margin-left: auto;
   margin-right: auto;
   padding-left: ${p => p.theme.space[3]}px;
   padding-right: ${p => p.theme.space[3]}px;
 `;
+
+export const BtnIconBox = styled.span`
+  display: flex;
+`;
+
+export const BtnText = styled.span``;

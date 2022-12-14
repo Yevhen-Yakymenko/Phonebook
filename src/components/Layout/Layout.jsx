@@ -5,8 +5,6 @@ import { Outlet } from 'react-router-dom';
 import LogoLink from 'components/LogoLink/';
 import AuthNavList from 'components/AuthNavList';
 
-import { Main } from './Layout.styled';
-
 const Layout = () => {
   return (
     <>
@@ -15,11 +13,11 @@ const Layout = () => {
 
         <AuthNavList />
       </AppBar>
-      <Main>
+      <main>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
-      </Main>
+      </main>
       <footer>Foter</footer>
     </>
   );

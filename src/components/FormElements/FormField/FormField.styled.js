@@ -47,7 +47,7 @@ export const IconBoxBefore = styled.span`
   }
 `;
 
-export const IconBoxAfter = styled.button`
+export const IconBoxAfter = styled.span`
   padding: ${p => p.theme.space[2]}px;
   position: absolute;
   top: 50%;

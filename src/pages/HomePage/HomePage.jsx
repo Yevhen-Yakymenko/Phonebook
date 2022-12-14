@@ -20,7 +20,7 @@ const HomePage = () => {
       <StyledContainer>
         <ContentBox>
           <ContentText>do you want to know what it means?</ContentText>
-          <ContentLink to={'login'}>
+          <ContentLink to={'login'} aria-label="link to log in page">
             <StyledIconPhone />
             <StyledIconPlus />
             <StyledIconBook />

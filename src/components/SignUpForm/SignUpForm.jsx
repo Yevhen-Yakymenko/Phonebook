@@ -6,7 +6,7 @@ import { IoCloseCircleSharp, IoEye, IoEyeOff } from 'react-icons/io5';
 import LogoIcon from 'components/LogoIcon';
 import {
   FormTitle,
-  FormLable,
+  FormLabel,
   FormField,
   FormBtnSbm,
 } from 'components/FormElements';
@@ -43,7 +43,7 @@ const SignUpForm = () => {
     <StyledForm autoComplete="off" onSubmit={handleSubmit}>
       <FormTitle titleIcon={<LogoIcon />}>Get started your book</FormTitle>
       <div>
-        <FormLable htmlFor="name">Name</FormLable>
+        <FormLabel htmlFor="name">Name</FormLabel>
         <FormField
           state={name}
           setState={setName}
@@ -59,7 +59,7 @@ const SignUpForm = () => {
       </div>
 
       <div>
-        <FormLable htmlFor="email">E-mail</FormLable>
+        <FormLabel htmlFor="email">E-mail</FormLabel>
         <FormField
           state={email}
           setState={setEmail}
@@ -75,7 +75,7 @@ const SignUpForm = () => {
       </div>
 
       <div>
-        <FormLable htmlFor="password">Password</FormLable>
+        <FormLabel htmlFor="password">Password</FormLabel>
         <FormField
           state={password}
           setState={setPassword}
