@@ -18,17 +18,25 @@ export const DecorBoxText = styled.p`
 `;
 
 export const StyledLink = styled(NavLink)`
-  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: ${p => p.theme.space[3]}px;
+  padding-right: ${p => p.theme.space[3]}px;
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-weight: ${p => p.theme.fontWeights.medium};
+  line-height: ${p => p.theme.lineHeights.inputs};
   color: ${p => p.theme.colors.white};
+
   background-color: ${p => p.theme.colors.btnAccent};
+
   border-radius: ${p => p.theme.space[2]}px;
+
   cursor: pointer;
-  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    font-weight 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity ${p => p.theme.transitions.main},
+    font-weight ${p => p.theme.transitions.main};
 
   &:hover,
   &:focus {

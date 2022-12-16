@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { FaEdit } from 'react-icons/fa';
 import { MdEdit, MdDeleteForever } from 'react-icons/md';
 
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
@@ -35,6 +34,7 @@ const ContactItem = ({ contact }) => {
       <ContactCtrl>
         <ContactEditBtn
           type="button"
+          aria-label="edit contact"
           onClick={() => {
             togleModal();
           }}
@@ -46,6 +46,7 @@ const ContactItem = ({ contact }) => {
         </ContactEditBtn>
         <ContactDeleteBtn
           type="button"
+          aria-label="delete contact"
           onClick={() => {
             deleteContact(id);
           }}

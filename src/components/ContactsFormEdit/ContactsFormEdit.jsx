@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   // useGetContactsQuery,
   useUpdateContactMutation,
@@ -25,6 +25,12 @@ export default function ContactForm({ contact, closeModal }) {
 
   // const { data: contacts } = useGetContactsQuery();
   const [updateContact, { isLoading, isSuccess }] = useUpdateContactMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      closeModal();
+    }
+  }, [closeModal, isSuccess]);
 
   // if (name !== '') {
   //   const contactName = name.split(' ');
@@ -70,12 +76,7 @@ export default function ContactForm({ contact, closeModal }) {
     updateContact({ id: contact.id, name: name, number: number });
 
     form.reset();
-    closeModal();
   };
-
-  // if (isSuccess) {
-  //   closeModal();
-  // }
 
   return (
     <FormContainer autoComplete="off" onSubmit={handleSubmit}>
@@ -131,7 +132,7 @@ export default function ContactForm({ contact, closeModal }) {
           required
         />
       </div>
-      <FormBtnSbm type="submit" disabled={isLoading}>
+      <FormBtnSbm loading={isLoading} disabled={isLoading} type="submit">
         Save changes
       </FormBtnSbm>
     </FormContainer>

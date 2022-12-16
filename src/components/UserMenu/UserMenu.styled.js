@@ -24,10 +24,10 @@ export const BtnLogOut = styled.button`
 
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: ${p => p.theme.space[2]}px;
 
   font-weight: ${p => p.theme.fontWeights.bold};
-  line-height: 1.25;
+  line-height: ${p => p.theme.lineHeights.inputs};
   color: ${p => p.theme.colors.textAccent};
 
   background-color: ${p => p.theme.colors.btnBgSecondary};
@@ -36,8 +36,8 @@ export const BtnLogOut = styled.button`
   border-radius: ${p => p.theme.space[2]}px;
 
   cursor: pointer;
-  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color ${p => p.theme.transitions.main},
+    background-color ${p => p.theme.transitions.main};
 
   &:hover,
   &:focus {

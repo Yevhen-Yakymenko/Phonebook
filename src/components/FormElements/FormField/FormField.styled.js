@@ -21,7 +21,7 @@ export const StyledInput = styled.input`
 
   cursor: pointer;
 
-  transition: border 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border ${p => p.theme.transitions.main};
 
   :hover,
   :focus {
@@ -40,6 +40,8 @@ export const IconBoxBefore = styled.span`
   font-size: ${p => p.theme.fontSizes[4]}px;
 
   pointer-events: none;
+
+  transition: color ${p => p.theme.transitions.main};
 
   ${StyledInput}:hover ~ &,
   ${StyledInput}:focus ~ & {
@@ -62,6 +64,8 @@ export const IconBoxAfter = styled.span`
   border: none;
 
   cursor: pointer;
+
+  transition: color ${p => p.theme.transitions.main};
 
   ${StyledInput}:hover ~ &,
   ${StyledInput}:focus ~ & {

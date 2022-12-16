@@ -134,4 +134,8 @@ text-align: center;
   pointer-events: none;
 
 
-  loadinh='lazy' для зображень
+loadinh='lazy' для зображень
+
+зробити спінер
+
+зробити іконку для вкладки сторінки favicon.ico

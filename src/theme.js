@@ -45,4 +45,10 @@ export const theme = {
     body: 'normal',
     caps: '0.2em',
   },
+
+  transitions: {
+    main: '200ms cubic-bezier(0.4, 0, 0.2, 1)',
+    duration: '200ms',
+    property: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  },
 };

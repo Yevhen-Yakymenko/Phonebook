@@ -17,7 +17,11 @@ const UserMenu = () => {
     isSuccess && (
       <MenuWrapper>
         <UserName> {data.name} </UserName>
-        <BtnLogOut type="button" onClick={() => logOut()}>
+        <BtnLogOut
+          type="button"
+          aria-label="button log out"
+          onClick={() => logOut()}
+        >
           <BtnText>Log out</BtnText>{' '}
           <BtnIconBox>
             <FiLogOut />

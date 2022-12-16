@@ -39,7 +39,7 @@ export default function ContactList() {
         ))}
       </StyledContactsList>
     ) : (
-      <MessageText>You don't have any contacts with that name.</MessageText>
+      <MessageText>You don't have any contacts with this name.</MessageText>
     );
 
   const isHaveContacts =

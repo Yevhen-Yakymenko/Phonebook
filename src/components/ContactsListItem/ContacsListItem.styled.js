@@ -6,11 +6,11 @@ export const ContactsItem = styled.li`
   width: 80%;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: ${p => p.theme.space[2]}px;
   background-color: ${p => p.theme.colors.white};
   border-bottom: 2px solid ${p => p.theme.colors.border};
 
-  transition: scale 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: scale ${p => p.theme.transitions.main};
 
   :hover {
     scale: 1.003;
@@ -30,7 +30,7 @@ export const ContactNumber = styled.p`
 export const ContactCtrl = styled.div`
   margin-left: auto;
   display: flex;
-  gap: 8px;
+  gap: ${p => p.theme.space[2]}px;
 `;
 
 const StyledBtn = styled.button`
@@ -49,8 +49,8 @@ const StyledBtn = styled.button`
   border-radius: ${p => p.theme.space[2]}px;
 
   cursor: pointer;
-  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color ${p => p.theme.transitions.main},
+    background-color ${p => p.theme.transitions.main};
 
   &:hover,
   &:focus {
