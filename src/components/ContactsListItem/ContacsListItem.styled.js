@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContactsItem = styled.li`
   margin: 0 auto;
-  padding: 10px 32px;
+  padding: 10px ${p => p.theme.space[4]}px;
   width: 80%;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ export const ContactsItem = styled.li`
 export const ContactName = styled.h3`
   flex: 1 1 33.33%;
 
-  font-weight: 500;
+  font-weight: ${p => p.theme.fontWeights.medium};
 `;
 
 export const ContactNumber = styled.p`
@@ -41,7 +41,7 @@ const StyledBtn = styled.button`
 
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: ${p => p.theme.space[2]}px;
 
   font-weight: ${p => p.theme.fontWeights.bold};
 
@@ -70,12 +70,12 @@ export const ContactEditBtn = styled(StyledBtn)`
 `;
 
 export const ContactDeleteBtn = styled(StyledBtn)`
-  color: #d43f3f;
-  background-color: #ffd7d7;
-  border-color: #d43f3f;
+  color: ${p => p.theme.colors.textAccent};
+  background-color: ${p => p.theme.colors.btnBgSecondary};
+  border-color: ${p => p.theme.colors.textAccent};
 
   &:hover,
   &:focus {
-    background-color: #d43f3f;
+    background-color: ${p => p.theme.colors.textAccent};
   }
 `;
