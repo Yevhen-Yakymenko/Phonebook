@@ -20,7 +20,9 @@ export default function ContactForm({ contact, closeModal }) {
   const { name, number } = contact;
   const currentName = name.split(' ');
   const [firstName, setFirstName] = useState(currentName[0]);
-  const [lastName, setLastName] = useState(currentName[1]);
+  const [lastName, setLastName] = useState(
+    currentName[1] ? currentName[1] : ''
+  );
   const [curentNnumber, setCurentNnumber] = useState(number);
 
   // const { data: contacts } = useGetContactsQuery();
@@ -92,7 +94,6 @@ export default function ContactForm({ contact, closeModal }) {
           type="text"
           name="firstName"
           id="firstName"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           placeholder="Enter contact first name"
           required
@@ -109,7 +110,6 @@ export default function ContactForm({ contact, closeModal }) {
           type="text"
           name="lastName"
           id="lastName"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           placeholder="Enter contact last name"
           required

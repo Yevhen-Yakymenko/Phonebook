@@ -5,6 +5,7 @@ import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 
 import Modal from 'components/Modal';
 import ContactsFormEdit from 'components/ContactsFormEdit';
+import Spinner from 'components/Spinner';
 
 import {
   ContactsItem,
@@ -13,9 +14,8 @@ import {
   ContactCtrl,
   ContactEditBtn,
   ContactDeleteBtn,
-  BtnIconBox,
-  BtnText,
 } from './ContacsListItem.styled.js';
+import { BtnIconBox, BtnText } from 'components/GlobalStyle';
 
 const ContactItem = ({ contact }) => {
   const { name, number, id } = contact;
@@ -52,9 +52,13 @@ const ContactItem = ({ contact }) => {
           }}
           disabled={isLoading}
         >
-          <BtnIconBox>
-            <MdDeleteForever />
-          </BtnIconBox>{' '}
+          {isLoading ? (
+            <Spinner loading={isLoading} />
+          ) : (
+            <BtnIconBox>
+              <MdDeleteForever />
+            </BtnIconBox>
+          )}{' '}
           <BtnText>Delete</BtnText>
         </ContactDeleteBtn>
       </ContactCtrl>

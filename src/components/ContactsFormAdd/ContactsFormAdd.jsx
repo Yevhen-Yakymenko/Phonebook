@@ -101,7 +101,6 @@ export default function ContactForm({ closeModal }) {
           type="text"
           name="firstName"
           id="firstName"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           placeholder="Enter contact first name"
           required
@@ -118,10 +117,8 @@ export default function ContactForm({ closeModal }) {
           type="text"
           name="lastName"
           id="lastName"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           placeholder="Enter contact last name"
-          required
         />
       </div>
       <div>

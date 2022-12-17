@@ -11,41 +11,11 @@ const rotate = keyframes`
 `;
 
 export const StyledSpinnerBox = styled.span`
-  position: relative;
+  display: flex;
 
-  display: inline-block;
-  width: ${p => p.theme.space[3]}px;
-  height: ${p => p.theme.space[3]}px;
+  font-size: ${p => p.theme.fontSizes[4]}px;
+  color: inherit;
 
-  background-color: ${p => p.theme.colors.btnBgSecondary};
-
-  border: 2px solid transparent;
-  border-color: ${p => p.theme.colors.textAccent};
-  border-radius: 100%;
-
+  transition: color ${p => p.theme.transitions.main};
   animation: ${rotate} 500ms ${p => p.theme.transitions.property} infinite;
-
-  &::before,
-  &::after {
-    position: absolute;
-
-    width: ${p => p.theme.space[1]}px;
-    height: ${p => p.theme.space[1]}px;
-
-    content: '';
-
-    background-color: ${p => p.theme.colors.textAccent};
-
-    border-radius: 100%;
-  }
-
-  &::before {
-    left: 0;
-    top: 0;
-  }
-
-  &::after {
-    right: 0;
-    bottom: 0;
-  }
 `;

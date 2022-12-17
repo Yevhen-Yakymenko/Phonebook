@@ -79,9 +79,3 @@ export const ContactDeleteBtn = styled(StyledBtn)`
     background-color: #d43f3f;
   }
 `;
-
-export const BtnIconBox = styled.span`
-  display: flex;
-`;
-
-export const BtnText = styled.span``;
