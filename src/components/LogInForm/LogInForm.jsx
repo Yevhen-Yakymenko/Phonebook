@@ -1,17 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import { IoIosMail, IoIosLock } from 'react-icons/io';
+import { IoCloseCircleSharp, IoEye, IoEyeOff } from 'react-icons/io5';
+
 import { useLogInMutation } from 'redux/user/userApi';
+import LogoIcon from 'components/LogoIcon';
+import {
+  FormContainer,
+  FormTitle,
+  FormLabel,
+  FormField,
+  FormBtnSbm,
+} from 'components/FormElements';
 
 import {
-  StyledForm,
-  FormGroup,
-  FormField,
-  StyledLable,
-  StyledInput,
-  IconClose,
-  IconBox,
-  IconEye,
-  IconEyeOff,
-  BtnSbm,
   StyledLink,
   DecorBox,
   DecorBoxLine,
@@ -22,24 +24,26 @@ const LogInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
-  const [logIn] = useLogInMutation();
+  const [logIn, { isLoading, isError, error }] = useLogInMutation();
 
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
+  const message =
+    isError &&
+    (error.status === 400
+      ? 'Invalid login or password. Try again.'
+      : 'Something went wrong :(');
 
-    if (name === 'email') {
-      setEmail(value);
+  useEffect(() => {
+    const notify = () => toast.error(message);
+    if (isError) {
+      notify();
     }
-
-    if (name === 'password') {
-      setPassword(value);
-    }
-  };
+  }, [isError, message]);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     const form = e.currentTarget;
+
     logIn({
       email: form.elements.email.value,
       password: form.elements.password.value,
@@ -59,54 +63,66 @@ const LogInForm = () => {
   };
 
   return (
-    <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-      <FormGroup>
-        <StyledLable htmlFor="email">E-mail</StyledLable>
-        <FormField>
-          <StyledInput
+    <>
+      <FormContainer autoComplete="off" onSubmit={handleSubmit}>
+        <FormTitle titleIcon={<LogoIcon />}>Log into your account</FormTitle>
+        <div>
+          <FormLabel htmlFor="email">E-mail</FormLabel>
+          <FormField
+            state={email}
+            setState={setEmail}
+            func={handleRemove}
+            iconBefore={<IoIosMail />}
+            iconAfter={<IoCloseCircleSharp />}
             type="email"
             name="email"
             id="email"
+            placeholder="Enter your e-mail"
             required
-            value={email}
-            onChange={handleChange}
           />
-          {email.length > 0 && (
-            <IconBox onClick={() => handleRemove()}>
-              <IconClose />
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+        </div>
 
-      <FormGroup>
-        <StyledLable htmlFor="password">Password</StyledLable>
-        <FormField>
-          <StyledInput
+        <div>
+          <FormLabel htmlFor="password">Password</FormLabel>
+          <FormField
+            state={password}
+            setState={setPassword}
+            func={toglePassword}
+            iconBefore={<IoIosLock />}
+            iconAfter={inputType === 'password' ? <IoEye /> : <IoEyeOff />}
             type={inputType}
             name="password"
             id="password"
+            placeholder="Enter your password"
             required
-            onChange={handleChange}
           />
-          {password.length > 0 && (
-            <IconBox onClick={() => toglePassword()}>
-              {inputType === 'password' ? <IconEye /> : <IconEyeOff />}
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+        </div>
 
-      <BtnSbm type="submit">Log In</BtnSbm>
+        <FormBtnSbm loading={isLoading} disabled={isLoading} type="submit">
+          Log In
+        </FormBtnSbm>
 
-      <DecorBox>
-        <DecorBoxLine />
-        <DecorBoxText>or</DecorBoxText>
-        <DecorBoxLine />
-      </DecorBox>
+        <DecorBox>
+          <DecorBoxLine />
+          <DecorBoxText>or</DecorBoxText>
+          <DecorBoxLine />
+        </DecorBox>
 
-      <StyledLink to={'/signup'}>Create new account</StyledLink>
-    </StyledForm>
+        <StyledLink to={'/signup'}>Create new account</StyledLink>
+      </FormContainer>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+        }}
+      />
+    </>
   );
 };
 

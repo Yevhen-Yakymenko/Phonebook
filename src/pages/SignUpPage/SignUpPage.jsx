@@ -1,8 +1,9 @@
+import PageTitle from 'components/PageTitle';
 import SignUpForm from 'components/SignUpForm';
 
 import {
   SignUpSection,
-  Container,
+  StyledContainer,
   FormBox,
   DecorBox,
 } from './SignUpPage.styled';
@@ -10,12 +11,13 @@ import {
 const SignUpPage = () => {
   return (
     <SignUpSection>
-      <Container>
+      <StyledContainer>
+        <PageTitle>Sing up page</PageTitle>
         <FormBox>
           <SignUpForm />
         </FormBox>
         <DecorBox>PhoneBook</DecorBox>
-      </Container>
+      </StyledContainer>
     </SignUpSection>
   );
 };

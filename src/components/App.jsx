@@ -34,13 +34,16 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
           <Route
-            path="contacts"
+            index
             element={
-              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<HomePage />}
+              />
             }
           />
+
           <Route
             path="signup"
             element={
@@ -60,6 +63,12 @@ export default function App() {
             }
           />
         </Route>
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
       </Routes>
       <GlobalStyle />
     </>

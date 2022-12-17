@@ -1,42 +1,38 @@
-import { useState } from 'react';
-import { useSignUpMutation } from 'redux/user/userApi';
+import { useState, useEffect } from 'react';
+import { IoIosMail, IoIosLock, IoIosPerson } from 'react-icons/io';
+import { IoCloseCircleSharp, IoEye, IoEyeOff } from 'react-icons/io5';
+import toast, { Toaster } from 'react-hot-toast';
 
+import { useSignUpMutation } from 'redux/user/userApi';
+import LogoIcon from 'components/LogoIcon';
 import {
-  StyledForm,
   FormTitle,
-  FormGroup,
+  FormLabel,
   FormField,
-  StyledLable,
-  StyledInput,
-  IconBox,
-  IconClose,
-  IconEye,
-  IconEyeOff,
-  BtnSbm,
-} from './SignUpForm.styled';
+  FormBtnSbm,
+} from 'components/FormElements';
+
+import { StyledForm } from './SignUpForm.styled';
 
 const SignUpForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inputType, setInputType] = useState('password');
-  const [signUp] = useSignUpMutation();
+  const [signUp, { isLoading, isError, error }] = useSignUpMutation();
 
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
+  const message =
+    isError &&
+    (error.status === 400
+      ? 'This email is already in use..'
+      : 'Something went wrong :(');
 
-    if (name === 'name') {
-      setName(value);
+  useEffect(() => {
+    const notify = () => toast.error(message);
+    if (isError) {
+      notify();
     }
-
-    if (name === 'email') {
-      setEmail(value);
-    }
-
-    if (name === 'password') {
-      setPassword(value);
-    }
-  };
+  }, [isError, message]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -58,66 +54,74 @@ const SignUpForm = () => {
   };
 
   return (
-    <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-      <FormTitle>Sign Up</FormTitle>
-      <FormGroup>
-        <StyledLable htmlFor="name">Name</StyledLable>
-        <FormField>
-          <StyledInput
+    <>
+      <StyledForm autoComplete="off" onSubmit={handleSubmit}>
+        <FormTitle titleIcon={<LogoIcon />}>Get started your book</FormTitle>
+        <div>
+          <FormLabel htmlFor="name">Name</FormLabel>
+          <FormField
+            state={name}
+            setState={setName}
+            func={() => setName('')}
+            iconBefore={<IoIosPerson />}
+            iconAfter={<IoCloseCircleSharp />}
             type="text"
             name="name"
             id="name"
+            placeholder="Enter your name"
             required
-            value={name}
-            onChange={handleChange}
           />
-          {name.length > 0 && (
-            <IconBox onClick={() => setName('')}>
-              <IconClose />
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+        </div>
 
-      <FormGroup>
-        <StyledLable htmlFor="email">E-mail</StyledLable>
-        <FormField>
-          <StyledInput
+        <div>
+          <FormLabel htmlFor="email">E-mail</FormLabel>
+          <FormField
+            state={email}
+            setState={setEmail}
+            func={() => setEmail('')}
+            iconBefore={<IoIosMail />}
+            iconAfter={<IoCloseCircleSharp />}
             type="email"
             name="email"
             id="email"
+            placeholder="Enter your e-mail"
             required
-            value={email}
-            onChange={handleChange}
           />
-          {email.length > 0 && (
-            <IconBox onClick={() => setEmail('')}>
-              <IconClose />
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+        </div>
 
-      <FormGroup>
-        <StyledLable htmlFor="password">Password</StyledLable>
-        <FormField>
-          <StyledInput
+        <div>
+          <FormLabel htmlFor="password">Password</FormLabel>
+          <FormField
+            state={password}
+            setState={setPassword}
+            func={toglePassword}
+            iconBefore={<IoIosLock />}
+            iconAfter={inputType === 'password' ? <IoEye /> : <IoEyeOff />}
             type={inputType}
             name="password"
             id="password"
+            placeholder="Enter your password"
             required
-            onChange={handleChange}
           />
-          {password.length > 0 && (
-            <IconBox onClick={() => toglePassword()}>
-              {inputType === 'password' ? <IconEye /> : <IconEyeOff />}
-            </IconBox>
-          )}
-        </FormField>
-      </FormGroup>
+        </div>
 
-      <BtnSbm type="submit">Sign Up</BtnSbm>
-    </StyledForm>
+        <FormBtnSbm loading={isLoading} disabled={isLoading} type="submit">
+          Sign Up
+        </FormBtnSbm>
+      </StyledForm>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+        }}
+      />
+    </>
   );
 };
 

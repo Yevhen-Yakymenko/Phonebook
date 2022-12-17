@@ -132,3 +132,10 @@ text-align: center;
 Подивитись наступнні css влачтивості:
   visibility: hidden;
   pointer-events: none;
+
+
+loadinh='lazy' для зображень
+
+зробити спінер
+
+зробити іконку для вкладки сторінки favicon.ico

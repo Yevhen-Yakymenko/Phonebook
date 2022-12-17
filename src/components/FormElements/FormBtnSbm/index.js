@@ -1,0 +1,1 @@
+export { FormBtnSbm } from './FormBtnSbm';

@@ -2,17 +2,22 @@ import AppBar from 'components/AppBar';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Main } from './Layout.styled';
+import LogoLink from 'components/LogoLink/';
+import AuthNavList from 'components/AuthNavList';
 
 const Layout = () => {
   return (
     <>
-      <AppBar />
-      <Main>
+      <AppBar>
+        <LogoLink />
+
+        <AuthNavList />
+      </AppBar>
+      <main>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
-      </Main>
+      </main>
       <footer>Foter</footer>
     </>
   );

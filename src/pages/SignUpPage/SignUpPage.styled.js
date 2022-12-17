@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-import { Box } from 'components/Container/Container.styled';
+import { StyledSection, Container } from 'components/GlobalStyle';
 
-export const SignUpSection = styled.section`
-  flex: 1 1 100%;
-
+export const SignUpSection = styled(StyledSection)`
   background: linear-gradient(270deg, #eaf0ff 0%, #f6f9ff 100%);
 `;
 
-export const Container = styled(Box)`
+export const StyledContainer = styled(Container)`
   position: relative;
   display: flex;
   justify-content: center;

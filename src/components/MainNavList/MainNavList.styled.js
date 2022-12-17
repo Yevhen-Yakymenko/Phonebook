@@ -21,7 +21,8 @@ export const StyledLink = styled(NavLink)`
   text-transform: capitalize;
   color: ${p => p.theme.colors.navMenu};
 
-  transition: color 200ms linear, font-weight 200ms linear;
+  transition: color ${p => p.theme.transitions.main},
+    font-weight ${p => p.theme.transitions.main};
 
   &::after {
     position: absolute;
@@ -40,7 +41,7 @@ export const StyledLink = styled(NavLink)`
 
     opacity: 0;
 
-    transition: opacity 200ms linear;
+    transition: opacity ${p => p.theme.transitions.main};
   }
 
   &::before {
