@@ -45,7 +45,7 @@ export const BtnClose = styled.button`
     scale ${p => p.theme.transitions.main};
 
   :hover,
-  :focus-within {
+  :focus {
     color: ${p => p.theme.colors.btnText};
     border-color: ${p => p.theme.colors.btnAccent};
     scale: 1.05;

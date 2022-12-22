@@ -1,7 +1,23 @@
 export const theme = {
-  breakpoints: ['40em', '52em', '64em'],
+  breakpoints: ['30em', '48em', '64em'],
 
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  space: [
+    0,
+    '0.25rem',
+    '0.5rem',
+    '1rem',
+    '2rem',
+    '4rem',
+    '8rem',
+    '16rem',
+    '32rem',
+  ],
+
+  space2: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+
+  sizes: {
+    container: 1430,
+  },
 
   colors: {
     text: '#8D96BD',
@@ -25,7 +41,19 @@ export const theme = {
     secondary: 'Roboto, sans-serif',
   },
 
-  fontSizes: [8, 10, 12, 14, 16, 20, 24, 32, 48, 64],
+  fontSizes: [
+    '0.5rem',
+    '0.625rem',
+    '0.75rem',
+    '0.875rem',
+    '1rem',
+    '1.25rem',
+    '1.5rem',
+    '2rem',
+    '3rem',
+    '4rem',
+  ],
+  fontSizes2: [8, 10, 12, 14, 16, 20, 24, 32, 48, 64],
 
   fontWeights: {
     light: 300,
@@ -45,6 +73,8 @@ export const theme = {
     body: 'normal',
     caps: '0.2em',
   },
+
+  radii: ['0.5rem'],
 
   transitions: {
     main: '200ms cubic-bezier(0.4, 0, 0.2, 1)',

@@ -23,7 +23,10 @@ const ContactItem = ({ contact }) => {
 
   const [showModal, setShowModal] = useState(false);
 
-  const togleModal = () => setShowModal(!showModal);
+  const togleModal = () => {
+    setShowModal(!showModal);
+    document.body.classList.toggle('modal-open');
+  };
 
   return (
     <ContactsItem>

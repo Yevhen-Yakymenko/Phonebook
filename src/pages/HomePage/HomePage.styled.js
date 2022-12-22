@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { GiCandlestickPhone, GiBlackBook } from 'react-icons/gi';
 import { AiOutlinePlus } from 'react-icons/ai';
 
-import { StyledSection, Container } from 'components/GlobalStyle';
-
-export const HomePageSection = styled(StyledSection)`
+export const HomePageSection = styled.section.attrs(props => ({
+  className: 'section-wrapper',
+}))`
   position: relative;
   background: linear-gradient(180deg, #f4f7ff 0%, #f1f5ff 100%);
 `;
@@ -24,7 +24,9 @@ export const DecorBox = styled.div`
   );
 `;
 
-export const StyledContainer = styled(Container)`
+export const StyledContainer = styled.div.attrs(props => ({
+  className: 'container',
+}))`
   height: 100%;
   display: flex;
   justify-content: center;
@@ -52,7 +54,7 @@ export const ContentLink = styled(NavLink)`
   align-items: center;
   color: palevioletred;
   opacity: 0.4;
-  z-index: 100;
+  z-index: 1;
   transition: opacity 100ms linear;
 
   :hover {

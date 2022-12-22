@@ -7,5 +7,5 @@ export const StyledForm = styled.form`
   flex-direction: column;
   gap: ${p => p.theme.space[4]}px;
 
-  z-index: 100;
+  z-index: 4;
 `;
