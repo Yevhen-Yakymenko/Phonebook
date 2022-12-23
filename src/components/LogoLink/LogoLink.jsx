@@ -2,14 +2,9 @@ import LogoIcon from 'components/LogoIcon';
 
 import { StyledLogoLink } from './LogoLink.styled';
 
-const LogoLink = ({ isMenuOpen, showMenu }) => {
-  const handleClose = () => {
-    if (isMenuOpen) {
-      showMenu();
-    }
-  };
+const LogoLink = ({ closeMenu }) => {
   return (
-    <StyledLogoLink to={'/'} title="Home" onClick={() => handleClose()}>
+    <StyledLogoLink to={'/'} title="Home" onClick={() => closeMenu()}>
       Phone <LogoIcon /> book
     </StyledLogoLink>
   );

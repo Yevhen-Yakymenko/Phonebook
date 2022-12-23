@@ -34,14 +34,19 @@ export default function App() {
   // geting the header height value
 
   const [height, setHeight] = useState(0);
-  const headerRef = useRef();
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const header = headerRef.current;
     const handleResize = () => {
       setHeight(header.offsetHeight);
     };
-    window.addEventListener('load', handleResize);
+
+    if (document.readyState === 'complete') {
+      handleResize();
+    } else {
+      window.addEventListener('load', handleResize);
+    }
 
     return () => {
       window.removeEventListener('load', handleResize);

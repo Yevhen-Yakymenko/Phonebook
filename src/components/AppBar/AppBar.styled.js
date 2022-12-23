@@ -17,18 +17,9 @@ export const StyledContainer = styled.div.attrs(_ => ({
 }))`
   display: flex;
   align-items: center;
-  min-height: 70px;
+  min-height: 80px;
 
   @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
     position: relative;
-    z-index: 10;
-  }
-
-  @media screen and (min-width: calc(${p => p.theme.breakpoints[1]})) {
-    min-height: 70px;
-  }
-
-  @media screen and (min-width: calc(${p => p.theme.breakpoints[2]})) {
-    min-height: 80px;
   }
 `;

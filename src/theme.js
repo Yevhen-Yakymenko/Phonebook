@@ -49,6 +49,7 @@ export const theme = {
     '1rem',
     '1.25rem',
     '1.5rem',
+    '1.75em',
     '2rem',
     '3rem',
     '4rem',

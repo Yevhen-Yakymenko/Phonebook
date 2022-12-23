@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
-
-import { valueToRem } from 'utils/mixins';
 import 'modern-normalize';
+import { valueToRem } from 'utils/mixins';
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -59,7 +58,8 @@ export const GlobalStyle = createGlobalStyle`
 
   .section-wrapper {
     flex: 1 1 100%;
-    padding-top: calc(${p => p.theme.space[4] + valueToRem(p.headerHeight)});
+    margin-top: ${p => valueToRem(p.headerHeight)};
+    padding-top: ${p => p.theme.space[4]};
     padding-bottom: ${p => p.theme.space[4]};
   } ;
 
@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-left: auto;
     margin-right: auto;
     padding-left: ${p => p.theme.space[3]};
-    padding-right: ${p => p.theme.space[3]};    
+    padding-right: ${p => p.theme.space[3]};
   }
 
   .btnIconBox {
@@ -77,7 +77,7 @@ export const GlobalStyle = createGlobalStyle`
 
   .btnText {}
 
-  .authMenu {
+  .auth-menu {
     @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)){
       top: ${p => valueToRem(p.headerHeight)};
     }

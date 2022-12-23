@@ -11,15 +11,23 @@ const Layout = forwardRef((_, ref) => {
   const AuthList = useRef();
 
   const toggleMenu = () => {
-    AuthList.current.classList.toggle('authMenu-open');
+    AuthList.current.classList.toggle('menu--open');
     setIsOpen(!isOpen);
     document.body.classList.toggle('modal-open');
+  };
+
+  const handleCloseMenu = () => {
+    if (isOpen) {
+      AuthList.current.classList.remove('menu--open');
+      setIsOpen(!isOpen);
+      document.body.classList.remove('modal-open');
+    }
   };
 
   return (
     <>
       <AppBar ref={ref}>
-        <LogoLink isMenuOpen={isOpen} showMenu={toggleMenu} />
+        <LogoLink closeMenu={handleCloseMenu} />
 
         <BurgerMenu
           aria-controls="AuthNavList"
@@ -30,7 +38,7 @@ const Layout = forwardRef((_, ref) => {
         <AuthNavList
           id="AuthNavList"
           ref={AuthList}
-          onClick={() => toggleMenu()}
+          onClick={() => handleCloseMenu()}
         />
       </AppBar>
       <main>

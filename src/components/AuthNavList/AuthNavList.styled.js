@@ -2,11 +2,11 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BtnWrapper = styled.div.attrs(_ => ({
-  className: 'authMenu',
+  className: 'auth-menu',
 }))`
   display: flex;
 
-  &.authMenu-open {
+  &.menu--open {
     display: flex;
     transform: translateX(100%);
   }
@@ -27,6 +27,8 @@ export const BtnWrapper = styled.div.attrs(_ => ({
     background-color: ${p => p.theme.colors.white};
     border-bottom: 1px solid ${p => p.theme.colors.border};
 
+    overflow-y: scroll;
+
     z-index: 5;
 
     transition: transform ${p => p.theme.transitions.main};
@@ -34,6 +36,7 @@ export const BtnWrapper = styled.div.attrs(_ => ({
 
   @media screen and (min-width: calc(${p => p.theme.breakpoints[0]})) {
     margin-left: auto;
+    flex-wrap: wrap;
     gap: ${p => p.theme.space[2]};
   }
 
