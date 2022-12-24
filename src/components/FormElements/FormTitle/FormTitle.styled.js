@@ -17,4 +17,5 @@ export const StyledTitle = styled.h2`
   font-size: ${p => p.theme.fontSizes[6]};
   font-weight: ${p => p.theme.fontWeights.bold};
   color: ${p => p.theme.colors.heading};
+  text-align: center;
 `;

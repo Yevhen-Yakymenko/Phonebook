@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-left: auto;
     margin-right: auto;
     padding-left: ${p => p.theme.space[3]};
-    padding-right: ${p => p.theme.space[3]};    
+    padding-right: ${p => p.theme.space[3]};
   }
 
   .page-title {

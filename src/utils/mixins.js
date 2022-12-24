@@ -14,15 +14,20 @@ export const adaptivFont = (pcSize, mobSize) => {
 
   return css`
     @media screen and (max-width: 767px) {
+    }
+
+    @media screen and (max-width: 767px) {
       font-size: calc(
         ${mobSize}px + ${addMobSize} * ((100vw - 320px) / ${containerMaxWidth})
       );
     }
+
     @media screen and (min-width: 767px) and (max-width: ${containerMaxWidth}px) {
       font-size: calc(
         ${mobSize}px + ${addSize} * (100vw / ${containerMaxWidth})
       );
     }
+
     @media screen and (min-width: ${containerMaxWidth}px) {
       font-size: ${pcSize}px;
     }
