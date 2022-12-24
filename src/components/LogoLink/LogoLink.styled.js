@@ -15,7 +15,7 @@ export const StyledLogoLink = styled(NavLink)`
   line-height: 1;
   color: ${p => p.theme.colors.textAccent};
 
-  @media screen and (min-width: calc(${p => p.theme.breakpoints[1]})) {
+  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
     padding-top: ${valueToRem(24)};
     padding-bottom: ${valueToRem(24)};
     gap: ${p => p.theme.space[2]};

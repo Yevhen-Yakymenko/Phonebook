@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { valueToRem } from 'utils/mixins';
+
 export const FieldBox = styled.div`
   position: relative;
   display: flex;
@@ -7,16 +9,16 @@ export const FieldBox = styled.div`
 
 export const StyledInput = styled.input`
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: ${p => p.theme.space[4]}px;
-  padding-left: ${p => p.theme.space[4]}px;
+  padding-top: ${valueToRem(10)};
+  padding-bottom: ${valueToRem(10)};
+  padding-right: ${p => p.theme.space[4]};
+  padding-left: ${p => p.theme.space[4]};
 
   font-weight: ${p => p.theme.fontWeights.medium};
   line-height: ${p => p.theme.lineHeights.inputs};
 
   border: 2px solid ${p => p.theme.colors.border};
-  border-radius: ${p => p.theme.space[2]}px;
+  border-radius: ${p => p.theme.space[2]};
   outline: none;
 
   cursor: pointer;
@@ -32,12 +34,12 @@ export const StyledInput = styled.input`
 export const IconBoxBefore = styled.span`
   position: absolute;
   top: 50%;
-  left: ${p => p.theme.space[2]}px;
+  left: ${p => p.theme.space[2]};
   transform: translateY(-50%);
 
   display: flex;
 
-  font-size: ${p => p.theme.fontSizes[4]}px;
+  font-size: ${p => p.theme.fontSizes[4]};
 
   pointer-events: none;
 
@@ -50,7 +52,7 @@ export const IconBoxBefore = styled.span`
 `;
 
 export const IconBoxAfter = styled.span`
-  padding: ${p => p.theme.space[2]}px;
+  padding: ${p => p.theme.space[2]};
   position: absolute;
   top: 50%;
   right: 0;
@@ -58,7 +60,7 @@ export const IconBoxAfter = styled.span`
 
   display: flex;
 
-  font-size: ${p => p.theme.fontSizes[5]}px;
+  font-size: ${p => p.theme.fontSizes[5]};
   color: currentColor;
   background: none;
   border: none;

@@ -61,15 +61,24 @@ export const GlobalStyle = createGlobalStyle`
     margin-top: ${p => valueToRem(p.headerHeight)};
     padding-top: ${p => p.theme.space[4]};
     padding-bottom: ${p => p.theme.space[4]};
-  } ;
+  }
 
   .container {
     max-width: ${p => p.theme.sizes.container}px;
     margin-left: auto;
     margin-right: auto;
     padding-left: ${p => p.theme.space[3]};
-    padding-right: ${p => p.theme.space[3]};
+    padding-right: ${p => p.theme.space[3]};    
   }
+
+  .page-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    visibility: hidden;
+    pointer-events: none;
+  };
 
   .btnIconBox {
     display: flex;

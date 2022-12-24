@@ -1,4 +1,3 @@
-import PageTitle from 'components/PageTitle';
 import LogoIcon from 'components/LogoIcon';
 import LogInForm from 'components/LogInForm';
 
@@ -7,6 +6,7 @@ import {
   StyledContainer,
   ContentBox,
   ContentWrapper,
+  ContentTitle,
   ContentMainText,
   ContentText,
   FormBox,
@@ -16,16 +16,16 @@ const LogInPage = () => {
   return (
     <LogInSection>
       <StyledContainer>
-        <PageTitle>Log in page</PageTitle>
+        <h2 className="page-title">Log in page</h2>
         <ContentBox>
           <ContentWrapper>
-            <ContentMainText>desktop app</ContentMainText>
-            <h2>
+            <ContentMainText>desktop and mobile app</ContentMainText>
+            <ContentTitle>
               Phone <LogoIcon /> book
-            </h2>
+            </ContentTitle>
             <ContentText>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium iste quisquam molestias?
+              A convenient way to store, view and manage your contacts in one
+              click, which saves you time and money.
             </ContentText>
           </ContentWrapper>
         </ContentBox>

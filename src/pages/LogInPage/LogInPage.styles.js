@@ -1,30 +1,52 @@
 import styled from 'styled-components';
 
-import { StyledSection, Container } from 'components/GlobalStyle';
-
-export const LogInSection = styled(StyledSection)`
+export const LogInSection = styled.section.attrs(_ => ({
+  className: 'section-wrapper',
+}))`
   background: linear-gradient(270deg, #eaf0ff 0%, #f6f9ff 100%);
 `;
 
-export const StyledContainer = styled(Container)`
+export const StyledContainer = styled.div.attrs(_ => ({
+  className: 'container',
+}))`
   display: flex;
+  align-items: center;
   height: 100%;
 `;
 
 export const ContentBox = styled.div`
+  display: none;
   flex: 1 1 100%;
-  padding-right: ${p => p.theme.space[5]}px;
-  display: flex;
-  justify-content: end;
-  align-items: center;
+
+  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
+    padding-right: ${p => p.theme.space[4]};
+
+    display: flex;
+    justify-content: end;
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints[2]}) {
+    margin-right: ${p => p.theme.space[5]};
+  }
 `;
 
 export const ContentWrapper = styled.div`
-  width: 400px;
-  padding-bottom: ${p => p.theme.space[5]}px;
+  min-width: 300px;
+  max-width: 400px;
+  min-height: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: ${p => p.theme.space[4]}px; ;
+  gap: ${p => p.theme.space[4]};
+`;
+
+export const ContentTitle = styled.h2`
+  display: flex;
+  align-items: center;
+  gap: ${p => p.theme.space[2]};
+
+  font-size: ${p => p.theme.fontSizes[7]};
+  color: ${p => p.theme.colors.logo};
 `;
 
 export const ContentMainText = styled.p`
@@ -43,8 +65,14 @@ export const ContentText = styled.p`
 
 export const FormBox = styled.div`
   flex: 1 1 100%;
-  padding-left: ${p => p.theme.space[5]}px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
+
+  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints[2]}) {
+    margin-left: ${p => p.theme.space[5]};
+  }
 `;

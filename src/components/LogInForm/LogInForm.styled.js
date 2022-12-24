@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const DecorBox = styled.div`
   display: flex;
   align-items: center;
-  gap: ${p => p.theme.space[2]}px;
+  gap: ${p => p.theme.space[2]};
 `;
 
 export const DecorBoxLine = styled.div`
@@ -20,8 +20,8 @@ export const DecorBoxText = styled.p`
 export const StyledLink = styled(NavLink)`
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: ${p => p.theme.space[3]}px;
-  padding-right: ${p => p.theme.space[3]}px;
+  padding-left: ${p => p.theme.space[3]};
+  padding-right: ${p => p.theme.space[3]};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,7 @@ export const StyledLink = styled(NavLink)`
 
   background-color: ${p => p.theme.colors.btnAccent};
 
-  border-radius: ${p => p.theme.space[2]}px;
+  border-radius: ${p => p.theme.space[2]};
 
   cursor: pointer;
   transition: opacity ${p => p.theme.transitions.main},

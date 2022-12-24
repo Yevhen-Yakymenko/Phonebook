@@ -34,13 +34,13 @@ export const BtnWrapper = styled.div.attrs(_ => ({
     transition: transform ${p => p.theme.transitions.main};
   }
 
-  @media screen and (min-width: calc(${p => p.theme.breakpoints[0]})) {
+  @media screen and (min-width: ${p => p.theme.breakpoints[0]}) {
     margin-left: auto;
     flex-wrap: wrap;
     gap: ${p => p.theme.space[2]};
   }
 
-  @media screen and (min-width: calc(${p => p.theme.breakpoints[1]})) {
+  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
     gap: ${p => p.theme.space[3]};
   }
 `;
@@ -79,13 +79,13 @@ export const StyledLink = styled(NavLink)`
     width: 40%;
   }
 
-  @media screen and (min-width: calc(${p => p.theme.breakpoints[0]})) {
+  @media screen and (min-width: ${p => p.theme.breakpoints[0]}) {
     min-width: 60px;
 
     font-size: ${p => p.theme.fontSizes[4]};
   }
 
-  @media screen and (min-width: calc(${p => p.theme.breakpoints[1]})) {
+  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
     padding-top: ${p => p.theme.space[2]};
     padding-bottom: ${p => p.theme.space[2]};
     padding-left: ${p => p.theme.space[3]};
