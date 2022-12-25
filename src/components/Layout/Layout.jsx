@@ -27,7 +27,7 @@ const Layout = forwardRef((_, ref) => {
   return (
     <>
       <AppBar ref={ref}>
-        <LogoLink closeMenu={handleCloseMenu} />
+        <LogoLink to={'/'} title="Home" onClick={() => handleCloseMenu()} />
 
         <BurgerMenu
           aria-controls="AuthNavList"

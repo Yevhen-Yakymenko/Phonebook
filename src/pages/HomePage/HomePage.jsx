@@ -20,7 +20,7 @@ const HomePage = () => {
         <ContentBox>
           <h1>PhoneBook</h1>
           <p>Contacts database</p>
-          <h2>All your contacts in one place.</h2>
+          <h2>All your contacts in one place</h2>
           <p>
             View and manage contacts stored in the app on any device, and a
             convenient search makes it easy to find contact information whenever

@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
+import { valueToRem } from 'utils/mixins';
+
 export const ContactsItem = styled.li`
   margin: 0 auto;
-  padding: 10px ${p => p.theme.space[4]}px;
+  padding: ${valueToRem(10)} ${p => p.theme.space[4]};
   width: 80%;
   display: flex;
   align-items: center;
-  gap: ${p => p.theme.space[2]}px;
+  gap: ${p => p.theme.space[2]};
   background-color: ${p => p.theme.colors.white};
   border-bottom: 2px solid ${p => p.theme.colors.border};
 
@@ -30,23 +32,23 @@ export const ContactNumber = styled.p`
 export const ContactCtrl = styled.div`
   margin-left: auto;
   display: flex;
-  gap: ${p => p.theme.space[2]}px;
+  gap: ${p => p.theme.space[2]};
 `;
 
 const StyledBtn = styled.button`
-  padding-top: ${p => p.theme.space[2]}px;
-  padding-bottom: ${p => p.theme.space[2]}px;
-  padding-left: ${p => p.theme.space[3]}px;
-  padding-right: ${p => p.theme.space[3]}px;
+  padding-top: ${p => p.theme.space[2]};
+  padding-bottom: ${p => p.theme.space[2]};
+  padding-left: ${p => p.theme.space[3]};
+  padding-right: ${p => p.theme.space[3]};
 
   display: flex;
   align-items: center;
-  gap: ${p => p.theme.space[2]}px;
+  gap: ${p => p.theme.space[2]};
 
   font-weight: ${p => p.theme.fontWeights.bold};
 
   border: 1px solid transparent;
-  border-radius: ${p => p.theme.space[2]}px;
+  border-radius: ${p => p.theme.space[2]};
 
   cursor: pointer;
   transition: color ${p => p.theme.transitions.main},

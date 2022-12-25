@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AiOutlineUserAdd } from 'react-icons/ai';
 
 import Modal from 'components/Modal';
 import AppBar from 'components/AppBar';
@@ -38,7 +39,10 @@ const ContactsPage = () => {
               togleModal();
             }}
           >
-            Add new contact
+            <span>
+              <AiOutlineUserAdd />
+            </span>
+            <span>Add new contact</span>
           </BtnAdd>
 
           <Filter />

@@ -2,9 +2,9 @@ import LogoIcon from 'components/LogoIcon';
 
 import { StyledLogoLink } from './LogoLink.styled';
 
-const LogoLink = ({ closeMenu }) => {
+const LogoLink = ({ ...props }) => {
   return (
-    <StyledLogoLink to={'/'} title="Home" onClick={() => closeMenu()}>
+    <StyledLogoLink {...props}>
       Phone <LogoIcon /> book
     </StyledLogoLink>
   );

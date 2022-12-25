@@ -13,7 +13,7 @@ const rotate = keyframes`
 export const StyledSpinnerBox = styled.span`
   display: flex;
 
-  font-size: ${p => p.theme.fontSizes[4]}px;
+  font-size: ${p => p.theme.fontSizes[4]};
   color: inherit;
 
   transition: color ${p => p.theme.transitions.main};

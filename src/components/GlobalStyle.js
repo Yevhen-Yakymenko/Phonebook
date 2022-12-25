@@ -1,5 +1,6 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
+
 import { valueToRem } from 'utils/mixins';
 
 export const GlobalStyle = createGlobalStyle`
@@ -80,37 +81,64 @@ export const GlobalStyle = createGlobalStyle`
     pointer-events: none;
   };
 
-  .btnIconBox {
-    display: flex;
-  }
-
-  .btnText {}
-
   .auth-menu {
     @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)){
       top: ${p => valueToRem(p.headerHeight)};
-    }
-    
+    }    
   }
 
-`;
+  .btn-main {
+    padding-top: ${p => p.theme.space[2]};
+    padding-bottom: ${p => p.theme.space[2]};
+    padding-right: ${p => p.theme.space[3]};
+    padding-left: ${p => p.theme.space[3]};
 
-export const StyledSection = styled.section`
-  flex: 1 1 100%;
-  padding-top: calc(${valueToRem(32)});
-  padding-bottom: ${valueToRem(32)};
-`;
+    display: flex;
+    align-items: center;
+    gap: ${p => p.theme.space[2]};
 
-export const Container = styled.div`
-  max-width: ${p => p.theme.sizes.container}px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: ${p => p.theme.space[3]};
-  padding-right: ${p => p.theme.space[3]};
-`;
+    font-weight: ${p => p.theme.fontWeights.bold};
 
-export const BtnIconBox = styled.span`
-  display: flex;
-`;
+    border: 1px solid transparent;
+    border-radius: ${p => p.theme.space[2]};
 
-export const BtnText = styled.span``;
+    cursor: pointer;
+
+    transition: color ${p => p.theme.transitions.main},
+      background-color ${p => p.theme.transitions.main};
+    
+    &:hover,
+    &:focus {
+      color: ${p => p.theme.colors.white};
+    }
+
+    &__primary {
+      color: ${p => p.theme.colors.btnText};
+      background-color: ${p => p.theme.colors.btnBackground};
+      border-color: ${p => p.theme.colors.btnAccent};
+
+      &:hover,
+      &:focus {
+      background-color: ${p => p.theme.colors.btnAccent};
+      }
+    }
+
+    &__secondary {
+      color: ${p => p.theme.colors.textAccent};
+      background-color: ${p => p.theme.colors.btnBgSecondary};
+      border-color: ${p => p.theme.colors.textAccent};
+
+      &:hover,
+      &:focus {
+        background-color: ${p => p.theme.colors.textAccent};
+      }
+    }
+
+    &__icon-box {
+      display: flex;
+    }
+
+    &__text {
+    }
+  }
+`;

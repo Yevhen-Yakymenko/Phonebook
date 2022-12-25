@@ -15,7 +15,6 @@ import {
   ContactEditBtn,
   ContactDeleteBtn,
 } from './ContacsListItem.styled.js';
-import { BtnIconBox, BtnText } from 'components/GlobalStyle';
 
 const ContactItem = ({ contact }) => {
   const { name, number, id } = contact;
@@ -42,10 +41,10 @@ const ContactItem = ({ contact }) => {
             togleModal();
           }}
         >
-          <BtnIconBox>
+          <span className="btn-main__icon-box">
             <MdEdit />
-          </BtnIconBox>{' '}
-          <BtnText>Edit</BtnText>
+          </span>{' '}
+          <span className="btn-main__text">Edit</span>
         </ContactEditBtn>
         <ContactDeleteBtn
           type="button"
@@ -58,11 +57,11 @@ const ContactItem = ({ contact }) => {
           {isLoading ? (
             <Spinner loading={isLoading} />
           ) : (
-            <BtnIconBox>
+            <span className="btn-main__icon-box">
               <MdDeleteForever />
-            </BtnIconBox>
+            </span>
           )}{' '}
-          <BtnText>Delete</BtnText>
+          <span className="btn-main__text">Delete</span>
         </ContactDeleteBtn>
       </ContactCtrl>
 

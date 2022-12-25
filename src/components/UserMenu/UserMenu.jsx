@@ -6,7 +6,6 @@ import { useAuth } from 'hooks/useAuth';
 import Spinner from 'components/Spinner';
 
 import { MenuWrapper, UserName, BtnLogOut } from './UserMenu.styled';
-import { BtnIconBox, BtnText } from 'components/GlobalStyle';
 
 const UserMenu = () => {
   const { isLoggedIn, token } = useAuth();
@@ -24,13 +23,13 @@ const UserMenu = () => {
           disabled={isLoading}
           onClick={() => logOut()}
         >
-          <BtnText>Log out</BtnText>{' '}
+          <span className="btn-main__text">Log out</span>{' '}
           {isLoading ? (
             <Spinner loading={isLoading} />
           ) : (
-            <BtnIconBox>
+            <span className="btn-main__icon-box">
               <FiLogOut />
-            </BtnIconBox>
+            </span>
           )}
         </BtnLogOut>
       </MenuWrapper>
