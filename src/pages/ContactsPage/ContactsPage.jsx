@@ -39,10 +39,10 @@ const ContactsPage = () => {
               togleModal();
             }}
           >
-            <span>
+            <span className="btn-main__icon-box">
               <AiOutlineUserAdd />
             </span>
-            <span>Add new contact</span>
+            <span className="btn-main__text">Add new contact</span>
           </BtnAdd>
 
           <Filter />

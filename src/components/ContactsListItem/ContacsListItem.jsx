@@ -9,6 +9,7 @@ import Spinner from 'components/Spinner';
 
 import {
   ContactsItem,
+  ContactInfo,
   ContactName,
   ContactNumber,
   ContactCtrl,
@@ -29,9 +30,11 @@ const ContactItem = ({ contact }) => {
 
   return (
     <ContactsItem>
-      <ContactName>{name}</ContactName>
+      <ContactInfo>
+        <ContactName>{name}</ContactName>
 
-      <ContactNumber>{number}</ContactNumber>
+        <ContactNumber>{number}</ContactNumber>
+      </ContactInfo>
 
       <ContactCtrl>
         <ContactEditBtn

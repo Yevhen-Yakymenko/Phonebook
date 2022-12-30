@@ -84,14 +84,14 @@ export const GlobalStyle = createGlobalStyle`
   .auth-menu {
     @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)){
       top: ${p => valueToRem(p.headerHeight)};
-    }    
+    }
   }
 
   .btn-main {
     padding-top: ${p => p.theme.space[2]};
     padding-bottom: ${p => p.theme.space[2]};
-    padding-right: ${p => p.theme.space[3]};
-    padding-left: ${p => p.theme.space[3]};
+    padding-right: ${p => p.theme.space[2]};
+    padding-left: ${p => p.theme.space[2]};
 
     display: flex;
     align-items: center;
@@ -106,6 +106,11 @@ export const GlobalStyle = createGlobalStyle`
 
     transition: color ${p => p.theme.transitions.main},
       background-color ${p => p.theme.transitions.main};
+
+    @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
+      padding-right: ${p => p.theme.space[3]};
+      padding-left: ${p => p.theme.space[3]};
+    }
     
     &:hover,
     &:focus {
@@ -136,9 +141,17 @@ export const GlobalStyle = createGlobalStyle`
 
     &__icon-box {
       display: flex;
+
+      @media screen and (max-width: calc(${p =>
+        p.theme.breakpoints[0]} - 0.6px)){
+      }
     }
 
     &__text {
+      @media screen and (max-width: calc(${p =>
+        p.theme.breakpoints[0]} - 0.6px)){
+          display: none;
+      }
     }
   }
 `;

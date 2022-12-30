@@ -11,10 +11,19 @@ export const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(245, 248, 255, 0.4);
+
+  z-index: 999;
 `;
 
 export const ModalBody = styled.div`
   position: relative;
+  max-width: 420px;
+  width: 100%;
+
+  @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
+    padding-left: ${p => p.theme.space[3]};
+    padding-right: ${p => p.theme.space[3]};
+  }
 `;
 
 export const BtnClose = styled.button`
@@ -23,8 +32,8 @@ export const BtnClose = styled.button`
   right: 0;
   transform: translate(50%, -50%);
 
-  width: ${p => p.theme.fontSizes[7]}px;
-  height: ${p => p.theme.fontSizes[7]}px;
+  width: ${p => p.theme.fontSizes[7]};
+  height: ${p => p.theme.fontSizes[7]};
 
   display: flex;
   justify-content: center;
@@ -35,7 +44,7 @@ export const BtnClose = styled.button`
   color: ${p => p.theme.colors.text};
   background-color: ${p => p.theme.colors.white};
   border: 1px solid ${p => p.theme.colors.border};
-  border-radius: 8px;
+  border-radius: ${p => p.theme.radii[0]};
   outline: none;
 
   cursor: pointer;
@@ -50,10 +59,17 @@ export const BtnClose = styled.button`
     border-color: ${p => p.theme.colors.btnAccent};
     scale: 1.05;
   }
+
+  @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
+    top: 0;
+    right: ${p => p.theme.space[3]};
+
+    transform: translate(-50%, 50%);
+  }
 `;
 
 export const IconClose = styled(IoCloseOutline)`
-  width: ${p => p.theme.fontSizes[6]}px;
-  height: ${p => p.theme.fontSizes[6]}px;
+  width: ${p => p.theme.fontSizes[6]};
+  height: ${p => p.theme.fontSizes[6]};
   vertical-align: middle;
 `;

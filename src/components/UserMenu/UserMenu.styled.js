@@ -20,4 +20,17 @@ export const BtnLogOut = styled.button.attrs(_ => ({
   className: 'btn-main btn-main__secondary',
 }))`
   border-color: transparent;
+
+  & > .btn-main__icon-box {
+    @media screen and (max-width: calc(${p =>
+        p.theme.breakpoints[0]} - 0.6px)) {
+    }
+  }
+
+  & > .btn-main__text {
+    @media screen and (max-width: calc(${p =>
+        p.theme.breakpoints[1]} - 0.6px)) {
+      display: none;
+    }
+  }
 `;
