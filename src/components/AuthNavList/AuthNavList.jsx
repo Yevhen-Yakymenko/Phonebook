@@ -1,10 +1,8 @@
-import { forwardRef } from 'react';
-
 import { BtnWrapper, LinkLogIn, LinkSignUp } from './AuthNavList.styled';
 
-const AuthNavList = forwardRef((props, ref) => {
+const AuthNavList = ({ ...props }) => {
   return (
-    <BtnWrapper ref={ref} {...props}>
+    <BtnWrapper {...props}>
       <LinkLogIn to={'login'} title="Log In">
         Log In
       </LinkLogIn>
@@ -13,6 +11,6 @@ const AuthNavList = forwardRef((props, ref) => {
       </LinkSignUp>
     </BtnWrapper>
   );
-});
+};
 
 export default AuthNavList;

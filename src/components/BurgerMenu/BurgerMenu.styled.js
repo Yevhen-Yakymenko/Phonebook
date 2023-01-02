@@ -26,4 +26,5 @@ export const BurgerBtn = styled.button`
 
 export const BurgerIconBox = styled.span`
   display: flex;
+  pointer-events: none;
 `;

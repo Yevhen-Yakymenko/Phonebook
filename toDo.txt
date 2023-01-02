@@ -17,20 +17,6 @@ Components ===>>>
     -AuthNavList > NavLink > signup+login
     -UserMenu > avatar+userName+btnLogOut
 
-
-
-1. add NavList and UserMenu components
-2. add Layout component
-3. add to Layout NavList, UserMenu and Logo
-4. add SingUpPage > SingUpForm
-5. add LogInPage > LogInForm
-6. add ContactsPage > Filter+addContactBtn+ContactList
-
-1. login + sign up
-2. styled appBar
-3. modal for addConatact + edit contact
-
-
 {
   "compilerOptions": {
     "module": "commonjs",
