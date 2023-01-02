@@ -81,7 +81,7 @@ export const GlobalStyle = createGlobalStyle`
     pointer-events: none;
   };
 
-  .nav-box {
+  .nav-bloc {
     @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)){
       top: ${p => valueToRem(p.headerHeight)};
     }

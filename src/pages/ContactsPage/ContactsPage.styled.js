@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+import { valueToRem } from 'utils/mixins';
+
 export const ContactsSection = styled.section.attrs(_ => ({
   className: 'section-wrapper',
 }))`
@@ -31,6 +33,7 @@ export const StyledLogoLink = styled(NavLink)`
 `;
 
 export const ContactsCtrl = styled.div`
+  flex: 2 1;
   display: flex;
   gap: ${p => p.theme.space[3]};
 `;
@@ -38,8 +41,8 @@ export const ContactsCtrl = styled.div`
 export const BtnAdd = styled.button.attrs(_ => ({
   className: 'btn-main btn-main__primary',
 }))`
-  padding-right: ${p => p.theme.space[3]};
-  padding-left: ${p => p.theme.space[3]};
+  padding-right: ${valueToRem(13)};
+  padding-left: ${valueToRem(13)};
 
   border-color: ${p => p.theme.colors.border};
 

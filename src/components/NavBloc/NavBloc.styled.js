@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const NavWrapper = styled.div.attrs(_ => ({
-  className: 'nav-box',
+  className: 'nav-bloc',
 }))`
   display: flex;
 
@@ -17,7 +17,7 @@ export const NavWrapper = styled.div.attrs(_ => ({
     padding-left: ${p => p.theme.space[2]};
     padding-right: ${p => p.theme.space[2]};
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
     flex-direction: column;
     align-items: center;
     gap: ${p => p.theme.space[3]};
@@ -33,7 +33,7 @@ export const NavWrapper = styled.div.attrs(_ => ({
   }
 
   @media screen and (min-width: ${p => p.theme.breakpoints[0]}) {
-    width: 100%;
+    flex: 1 1;
     flex-wrap: wrap;
     gap: ${p => p.theme.space[2]};
   }

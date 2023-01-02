@@ -4,6 +4,7 @@ import { AiOutlineUserAdd } from 'react-icons/ai';
 import Modal from 'components/Modal';
 import AppBar from 'components/AppBar';
 import LogoIcon from 'components/LogoIcon';
+import NavBloc from 'components/NavBloc';
 import Filter from 'components/Filter';
 import UserMenu from 'components/UserMenu';
 import PageTitle from 'components/PageTitle';
@@ -32,6 +33,7 @@ const ContactsPage = () => {
         <StyledLogoLink to={'/contacts'}>
           <LogoIcon />
         </StyledLogoLink>
+
         <ContactsCtrl>
           <BtnAdd
             type="button"
@@ -47,7 +49,10 @@ const ContactsPage = () => {
 
           <Filter />
         </ContactsCtrl>
-        <UserMenu />
+
+        <NavBloc>
+          <UserMenu />
+        </NavBloc>
       </AppBar>
       <main>
         <ContactsSection>

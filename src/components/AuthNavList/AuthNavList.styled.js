@@ -23,12 +23,12 @@ export const BtnWrapper = styled.div`
 `;
 
 export const StyledLink = styled(NavLink)`
-  padding-top: ${p => p.theme.space[2]};
-  padding-bottom: ${p => p.theme.space[2]};
-  padding-left: ${p => p.theme.space[2]};
-  padding-right: ${p => p.theme.space[2]};
+  padding-top: ${p => p.theme.space[3]};
+  padding-bottom: ${p => p.theme.space[3]};
+  padding-left: ${p => p.theme.space[3]};
+  padding-right: ${p => p.theme.space[3]};
 
-  font-size: ${p => p.theme.fontSizes[3]};
+  font-size: ${p => p.theme.fontSizes[4]};
   font-weight: ${p => p.theme.fontWeights.medium};
   line-height: 1;
   text-align: center;
@@ -53,21 +53,18 @@ export const StyledLink = styled(NavLink)`
   }
 
   @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
-    min-width: 120px;
+    min-width: 240px;
+    width: 100%;
   }
 
   @media screen and (min-width: ${p => p.theme.breakpoints[0]}) {
     min-width: 60px;
 
-    font-size: ${p => p.theme.fontSizes[4]};
+    padding-top: ${p => p.theme.space[2]};
+    padding-bottom: ${p => p.theme.space[2]};
   }
 
   @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
-    padding-top: ${p => p.theme.space[2]};
-    padding-bottom: ${p => p.theme.space[2]};
-    padding-left: ${p => p.theme.space[3]};
-    padding-right: ${p => p.theme.space[3]};
-
     min-width: 100px;
   } ;
 `;
