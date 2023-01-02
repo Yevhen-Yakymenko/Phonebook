@@ -2,20 +2,39 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BtnWrapper = styled.div`
-  margin-left: auto;
   display: flex;
-  gap: ${p => p.theme.space[3]}px;
+
+  @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: ${p => p.theme.space[3]};
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints[0]}) {
+    margin-left: auto;
+    flex-wrap: wrap;
+    gap: ${p => p.theme.space[2]};
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
+    gap: ${p => p.theme.space[3]};
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
-  min-width: 100px;
-  padding: ${p => p.theme.space[2]}px ${p => p.theme.space[3]}px;
+  padding-top: ${p => p.theme.space[3]};
+  padding-bottom: ${p => p.theme.space[3]};
+  padding-left: ${p => p.theme.space[3]};
+  padding-right: ${p => p.theme.space[3]};
 
+  font-size: ${p => p.theme.fontSizes[4]};
   font-weight: ${p => p.theme.fontWeights.medium};
+  line-height: 1;
   text-align: center;
 
   border: 1px solid transparent;
-  border-radius: ${p => p.theme.space[2]}px;
+  border-radius: ${p => p.theme.radii[0]};
 
   transition: font-weight ${p => p.theme.transitions.main};
 
@@ -32,14 +51,31 @@ export const StyledLink = styled(NavLink)`
     overflow: hidden;
     visibility: hidden;
   }
+
+  @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
+    min-width: 240px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints[0]}) {
+    min-width: 60px;
+
+    padding-top: ${p => p.theme.space[2]};
+    padding-bottom: ${p => p.theme.space[2]};
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
+    min-width: 100px;
+  } ;
 `;
 
 export const LinkLogIn = styled(StyledLink)`
   color: ${p => p.theme.colors.btnText};
   background-color: ${p => p.theme.colors.btnBackground};
   border-color: ${p => p.theme.colors.border};
+
   transition: color ${p => p.theme.transitions.main},
-    background-color ${p => p.theme.transitions.main}};
+    background-color ${p => p.theme.transitions.main};
 
   :hover,
   :focus {

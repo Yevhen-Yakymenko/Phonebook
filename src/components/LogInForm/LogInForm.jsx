@@ -48,6 +48,9 @@ const LogInForm = () => {
       email: form.elements.email.value,
       password: form.elements.password.value,
     });
+
+    setEmail('');
+    setPassword('');
   };
 
   const handleRemove = () => {

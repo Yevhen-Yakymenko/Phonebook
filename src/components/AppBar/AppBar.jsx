@@ -1,11 +1,12 @@
+import { forwardRef } from 'react';
 import { MainHeader, StyledContainer } from './AppBar.styled';
 
-const AppBar = ({ children }) => {
+const AppBar = forwardRef((props, ref) => {
   return (
-    <MainHeader>
-      <StyledContainer>{children}</StyledContainer>
+    <MainHeader ref={ref}>
+      <StyledContainer>{props.children}</StyledContainer>
     </MainHeader>
   );
-};
+});
 
 export default AppBar;

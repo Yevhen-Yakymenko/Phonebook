@@ -1,8 +1,8 @@
 import { BtnWrapper, LinkLogIn, LinkSignUp } from './AuthNavList.styled';
 
-const AuthNavList = () => {
+const AuthNavList = ({ ...props }) => {
   return (
-    <BtnWrapper>
+    <BtnWrapper {...props}>
       <LinkLogIn to={'login'} title="Log In">
         Log In
       </LinkLogIn>

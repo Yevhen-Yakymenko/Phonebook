@@ -1,47 +1,66 @@
 import styled from 'styled-components';
 
 export const MenuWrapper = styled.div`
-  margin-left: auto;
   display: flex;
   align-items: center;
-  gap: ${p => p.theme.space[3]}px;
+  gap: ${p => p.theme.space[3]};
 
-  font-size: ${p => p.theme.fontSizes[4]}px;
-  font-weight: ${p => p.theme.fontWeights.medium};
-`;
+  @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
+    margin: 0 auto;
+    flex-direction: column;
+    gap: ${p => p.theme.space[4]};
+  }
 
-export const UserName = styled.p`
-  &::first-letter {
-    text-transform: uppercase;
+  @media screen and (min-width: ${p => p.theme.breakpoints[0]}) {
+    margin-left: auto;
+    flex-wrap: wrap;
   }
 `;
 
-export const BtnLogOut = styled.button`
-  padding-top: ${p => p.theme.space[2]}px;
-  padding-bottom: ${p => p.theme.space[2]}px;
-  padding-left: ${p => p.theme.space[3]}px;
-  padding-right: ${p => p.theme.space[3]}px;
+export const UserName = styled.p`
+  font-weight: ${p => p.theme.fontWeights.medium};
 
-  display: flex;
-  align-items: center;
-  gap: ${p => p.theme.space[2]}px;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 
-  font-weight: ${p => p.theme.fontWeights.bold};
-  line-height: ${p => p.theme.lineHeights.inputs};
-  color: ${p => p.theme.colors.textAccent};
+  @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
+    font-size: ${p => p.theme.fontSizes[5]};
+  }
+`;
 
-  background-color: ${p => p.theme.colors.btnBgSecondary};
+export const BtnLogOut = styled.button.attrs(_ => ({
+  className: 'btn-main btn-main__secondary',
+}))`
+  border-color: transparent;
 
-  border: 1px solid transparent;
-  border-radius: ${p => p.theme.space[2]}px;
+  @media screen and (max-width: calc(${p => p.theme.breakpoints[0]} - 0.6px)) {
+    min-width: 180px;
+    width: 100%;
+    justify-content: center;
 
-  cursor: pointer;
-  transition: color ${p => p.theme.transitions.main},
-    background-color ${p => p.theme.transitions.main};
+    padding-top: ${p => p.theme.space[3]};
+    padding-bottom: ${p => p.theme.space[3]};
+    padding-left: ${p => p.theme.space[3]};
+    padding-right: ${p => p.theme.space[3]};
+  }
 
-  &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.white};
-    background-color: ${p => p.theme.colors.textAccent};
+  & > .btn-main__icon-box {
+    @media screen and (max-width: calc(${p =>
+        p.theme.breakpoints[0]} - 0.6px)) {
+    }
+  }
+
+  & > .btn-main__text {
+    @media screen and (max-width: calc(${p =>
+        p.theme.breakpoints[0]} - 0.6px)) {
+      display: block;
+    }
+
+    @media screen and (min-width: ${p =>
+        p.theme.breakpoints[0]}) and (max-width: calc(${p =>
+        p.theme.breakpoints[1]} - 0.6px)) {
+      display: none;
+    }
   }
 `;

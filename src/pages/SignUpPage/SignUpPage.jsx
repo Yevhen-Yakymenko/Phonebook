@@ -16,7 +16,10 @@ const SignUpPage = () => {
         <FormBox>
           <SignUpForm />
         </FormBox>
-        <DecorBox>PhoneBook</DecorBox>
+        <DecorBox>
+          <span>Phone</span>
+          <span>Book</span>
+        </DecorBox>
       </StyledContainer>
     </SignUpSection>
   );

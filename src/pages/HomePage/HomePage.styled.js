@@ -1,12 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { GiCandlestickPhone, GiBlackBook } from 'react-icons/gi';
-import { AiOutlinePlus } from 'react-icons/ai';
-
-import { StyledSection, Container } from 'components/GlobalStyle';
-
-export const HomePageSection = styled(StyledSection)`
+export const HomePageSection = styled.section.attrs(props => ({
+  className: 'section-wrapper',
+}))`
   position: relative;
   background: linear-gradient(180deg, #f4f7ff 0%, #f1f5ff 100%);
 `;
@@ -24,17 +21,19 @@ export const DecorBox = styled.div`
   );
 `;
 
-export const StyledContainer = styled(Container)`
+export const StyledContainer = styled.div.attrs(props => ({
+  className: 'container',
+}))`
   height: 100%;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 `;
 
 export const ContentBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: ${p => p.theme.space[2]};
 `;
 
 export const ContentText = styled.p`
@@ -48,32 +47,14 @@ export const ContentText = styled.p`
 
 export const ContentLink = styled(NavLink)`
   display: flex;
-  gap: 64px;
+  gap: ${p => p.theme.space[5]};
   align-items: center;
   color: palevioletred;
   opacity: 0.4;
-  z-index: 100;
-  transition: opacity 100ms linear;
+  z-index: 1;
+  transition: opacity ${p => p.theme.transitions.main};
 
   :hover {
     opacity: 1;
   }
-`;
-
-export const StyledIconPhone = styled(GiCandlestickPhone)`
-  height: 300px;
-  width: 300px;
-  vertical-align: middle;
-`;
-
-export const StyledIconBook = styled(GiBlackBook)`
-  height: 300px;
-  width: 300px;
-  vertical-align: middle;
-`;
-
-export const StyledIconPlus = styled(AiOutlinePlus)`
-  height: 150px;
-  width: 150px;
-  vertical-align: middle;
 `;

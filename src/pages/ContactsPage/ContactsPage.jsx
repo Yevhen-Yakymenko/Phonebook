@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { AiOutlineUserAdd } from 'react-icons/ai';
 
 import Modal from 'components/Modal';
 import AppBar from 'components/AppBar';
 import LogoIcon from 'components/LogoIcon';
+import NavBloc from 'components/NavBloc';
 import Filter from 'components/Filter';
 import UserMenu from 'components/UserMenu';
 import PageTitle from 'components/PageTitle';
@@ -20,7 +22,10 @@ import {
 const ContactsPage = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const togleModal = () => setShowModal(!showModal);
+  const togleModal = () => {
+    setShowModal(!showModal);
+    document.body.classList.toggle('modal-open');
+  };
 
   return (
     <>
@@ -28,6 +33,7 @@ const ContactsPage = () => {
         <StyledLogoLink to={'/contacts'}>
           <LogoIcon />
         </StyledLogoLink>
+
         <ContactsCtrl>
           <BtnAdd
             type="button"
@@ -35,12 +41,18 @@ const ContactsPage = () => {
               togleModal();
             }}
           >
-            Add new contact
+            <span className="btn-main__icon-box">
+              <AiOutlineUserAdd />
+            </span>
+            <span className="btn-main__text">Add new contact</span>
           </BtnAdd>
 
           <Filter />
         </ContactsCtrl>
-        <UserMenu />
+
+        <NavBloc>
+          <UserMenu />
+        </NavBloc>
       </AppBar>
       <main>
         <ContactsSection>

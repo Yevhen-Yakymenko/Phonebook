@@ -1,17 +1,20 @@
-import AppBar from 'components/AppBar';
-import { Suspense } from 'react';
+import { forwardRef, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
+import AppBar from 'components/AppBar';
 import LogoLink from 'components/LogoLink/';
+import NavBloc from 'components/NavBloc';
 import AuthNavList from 'components/AuthNavList';
 
-const Layout = () => {
+const Layout = forwardRef((_, ref) => {
   return (
     <>
-      <AppBar>
-        <LogoLink />
+      <AppBar ref={ref}>
+        <LogoLink to={'/'} title="Home" />
 
-        <AuthNavList />
+        <NavBloc>
+          <AuthNavList id="AuthNavList" />
+        </NavBloc>
       </AppBar>
       <main>
         <Suspense fallback={<div>Loading...</div>}>
@@ -21,6 +24,6 @@ const Layout = () => {
       <footer>Foter</footer>
     </>
   );
-};
+});
 
 export default Layout;

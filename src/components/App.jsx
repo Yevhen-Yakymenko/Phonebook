@@ -1,4 +1,4 @@
-import { useEffect, lazy } from 'react';
+import { useState, useEffect, lazy, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { skipToken } from '@reduxjs/toolkit/query/react';
 import { useDispatch } from 'react-redux';
@@ -30,10 +30,35 @@ export default function App() {
     dispatch(setUser(data));
   }, [data, dispatch]);
 
+  // ------------------------------------------------
+  // geting the header height value
+
+  const [height, setHeight] = useState(0);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    const handleResize = () => {
+      setHeight(header.offsetHeight);
+    };
+
+    if (document.readyState === 'complete') {
+      handleResize();
+    } else {
+      window.addEventListener('load', handleResize);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleResize);
+    };
+  }, []);
+
+  // -------------------------------------------------
+
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout ref={headerRef} />}>
           <Route
             index
             element={
@@ -70,7 +95,7 @@ export default function App() {
           }
         />
       </Routes>
-      <GlobalStyle />
+      <GlobalStyle headerHeight={height} />
     </>
   );
 }
