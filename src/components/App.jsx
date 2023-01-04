@@ -84,6 +84,7 @@ export default function App() {
             />
           }
         />
+        <Route path="*" element={<div>Not Found</div>} />
       </Routes>
       <GlobalStyle headerHeight={height} />
     </>
