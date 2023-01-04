@@ -1,4 +1,4 @@
-import { forwardRef, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import AppBar from 'components/AppBar';
@@ -6,10 +6,10 @@ import LogoLink from 'components/LogoLink/';
 import NavBloc from 'components/NavBloc';
 import AuthNavList from 'components/AuthNavList';
 
-const Layout = forwardRef((_, ref) => {
+const Layout = ({ getHeight }) => {
   return (
     <>
-      <AppBar ref={ref}>
+      <AppBar getHeight={getHeight}>
         <LogoLink to={'/'} title="Home" />
 
         <NavBloc>
@@ -24,6 +24,6 @@ const Layout = forwardRef((_, ref) => {
       <footer>Foter</footer>
     </>
   );
-});
+};
 
 export default Layout;

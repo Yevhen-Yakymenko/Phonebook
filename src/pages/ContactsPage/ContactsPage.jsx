@@ -19,7 +19,7 @@ import {
   BtnAdd,
 } from './ContactsPage.styled';
 
-const ContactsPage = () => {
+const ContactsPage = ({ getHeight }) => {
   const [showModal, setShowModal] = useState(false);
 
   const togleModal = () => {
@@ -29,7 +29,7 @@ const ContactsPage = () => {
 
   return (
     <>
-      <AppBar>
+      <AppBar getHeight={getHeight}>
         <StyledLogoLink to={'/contacts'}>
           <LogoIcon />
         </StyledLogoLink>
