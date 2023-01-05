@@ -7,8 +7,8 @@ import {
   DecorBox,
   StyledContainer,
   ContentBox,
-  // ContentText,
   ContentLink,
+  MediaBox,
 } from './HomePage.styled';
 
 const HomePage = () => {
@@ -18,7 +18,6 @@ const HomePage = () => {
       <DecorBox></DecorBox>
       <StyledContainer>
         <ContentBox>
-          <h1>PhoneBook</h1>
           <p>Contacts database</p>
           <h2>All your contacts in one place</h2>
           <p>
@@ -27,14 +26,12 @@ const HomePage = () => {
             needed.
           </p>
           <ContentLink to={'login'} aria-label="link to log in page">
-            <GiCandlestickPhone />
-            Log In into your account
-            <GiBlackBook />
+            Log into your account
           </ContentLink>
         </ContentBox>
-        <div>
+        <MediaBox>
           <img src={img} alt="img" />
-        </div>
+        </MediaBox>
       </StyledContainer>
     </HomePageSection>
   );
