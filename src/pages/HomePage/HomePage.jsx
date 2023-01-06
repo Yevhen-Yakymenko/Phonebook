@@ -1,5 +1,3 @@
-import { GiCandlestickPhone, GiBlackBook } from 'react-icons/gi';
-
 import img from 'images/1.jpg';
 
 import {
