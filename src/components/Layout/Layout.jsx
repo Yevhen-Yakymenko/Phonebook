@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import AppBar from 'components/AppBar';
 import LogoLink from 'components/LogoLink/';
-import NavBloc from 'components/NavBloc';
+import NavBlock from 'components/NavBlock';
 import AuthNavList from 'components/AuthNavList';
 
 const Layout = ({ getHeight }) => {
@@ -12,9 +12,9 @@ const Layout = ({ getHeight }) => {
       <AppBar getHeight={getHeight}>
         <LogoLink to={'/'} title="Home" />
 
-        <NavBloc>
+        <NavBlock>
           <AuthNavList id="AuthNavList" />
-        </NavBloc>
+        </NavBlock>
       </AppBar>
       <main>
         <Suspense fallback={<div>Loading...</div>}>

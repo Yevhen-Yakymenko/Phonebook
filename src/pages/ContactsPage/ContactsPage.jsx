@@ -4,7 +4,7 @@ import { AiOutlineUserAdd } from 'react-icons/ai';
 import Modal from 'components/Modal';
 import AppBar from 'components/AppBar';
 import LogoIcon from 'components/LogoIcon';
-import NavBloc from 'components/NavBloc';
+import NavBlock from 'components/NavBlock';
 import Filter from 'components/Filter';
 import UserMenu from 'components/UserMenu';
 import PageTitle from 'components/PageTitle';
@@ -50,9 +50,9 @@ const ContactsPage = ({ getHeight }) => {
           <Filter />
         </ContactsCtrl>
 
-        <NavBloc>
+        <NavBlock>
           <UserMenu />
-        </NavBloc>
+        </NavBlock>
       </AppBar>
       <main>
         <ContactsSection>

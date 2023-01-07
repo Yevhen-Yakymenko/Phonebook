@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 
 import BurgerMenu from 'components/BurgerMenu';
 
-import { NavWrapper } from './NavBloc.styled';
+import { NavWrapper } from './NavBloc.kstyled';
 
-const NavBloc = ({ children }) => {
+const NavBlock = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const NavBox = useRef();
   const Burger = useRef();
@@ -48,4 +48,4 @@ const NavBloc = ({ children }) => {
   );
 };
 
-export default NavBloc;
+export default NavBlock;
