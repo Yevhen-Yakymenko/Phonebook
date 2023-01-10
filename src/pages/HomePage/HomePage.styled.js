@@ -78,14 +78,9 @@ export const ContentBox = styled.div`
 
 export const MediaBox = styled.div`
   flex: 1 1 100%;
-
   border-radius: ${p => p.theme.radii[0]};
-
   overflow: hidden;
-
   box-shadow: 0px 20px 40px rgba(53, 60, 115, 0.15);
-
-  filter: drop-shadow(0px 100px 150px #f2f6ff);
 
   @media screen and (max-width: calc(${p => p.theme.breakpoints[1]} - 0.6px)) {
     display: none;

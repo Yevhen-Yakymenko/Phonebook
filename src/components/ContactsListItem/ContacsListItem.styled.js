@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { valueToRem } from 'utils/mixins';
-
 export const ContactsItem = styled.li`
   margin: 0 auto;
   padding-top: ${p => p.theme.space[2]};
@@ -24,8 +22,8 @@ export const ContactsItem = styled.li`
   }
 
   @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
-    padding-top: ${valueToRem(10)};
-    padding-bottom: ${valueToRem(10)};
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
     padding-left: ${p => p.theme.space[4]};
     padding-right: ${p => p.theme.space[4]};
     width: 90%;

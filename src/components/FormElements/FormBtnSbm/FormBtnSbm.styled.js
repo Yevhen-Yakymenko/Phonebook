@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
-import { valueToRem } from 'utils/mixins';
-
 export const BtnSbm = styled.button.attrs(_ => ({
   className: 'btn-main btn-main__primary',
 }))`
-  padding-top: ${valueToRem(10)};
-  padding-bottom: ${valueToRem(10)};
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
   justify-content: center;
 
   line-height: ${p => p.theme.lineHeights.inputs};

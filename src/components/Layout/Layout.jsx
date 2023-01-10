@@ -5,6 +5,7 @@ import AppBar from 'components/AppBar';
 import LogoLink from 'components/LogoLink/';
 import NavBlock from 'components/NavBlock';
 import AuthNavList from 'components/AuthNavList';
+import Footer from 'components/Footer';
 
 const Layout = ({ getHeight }) => {
   return (
@@ -21,7 +22,7 @@ const Layout = ({ getHeight }) => {
           <Outlet />
         </Suspense>
       </main>
-      <footer>Foter</footer>
+      <Footer>Foter</Footer>
     </>
   );
 };

@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { valueToRem } from 'utils/mixins';
-
 export const StyledLogoLink = styled(NavLink)`
   display: flex;
   align-content: center;
@@ -16,8 +14,8 @@ export const StyledLogoLink = styled(NavLink)`
   color: ${p => p.theme.colors.textAccent};
 
   @media screen and (min-width: ${p => p.theme.breakpoints[1]}) {
-    padding-top: ${valueToRem(24)};
-    padding-bottom: ${valueToRem(24)};
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     gap: ${p => p.theme.space[2]};
 
     font-size: ${p => p.theme.fontSizes[8]};

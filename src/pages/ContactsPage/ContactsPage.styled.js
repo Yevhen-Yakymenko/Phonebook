@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { valueToRem } from 'utils/mixins';
-
 export const ContactsSection = styled.section.attrs(_ => ({
   className: 'section-wrapper',
 }))`
@@ -41,8 +39,8 @@ export const ContactsCtrl = styled.div`
 export const BtnAdd = styled.button.attrs(_ => ({
   className: 'btn-main btn-main__primary',
 }))`
-  padding-right: ${valueToRem(13)};
-  padding-left: ${valueToRem(13)};
+  padding-right: 0.8125rem;
+  padding-left: 0.8125rem;
 
   border-color: ${p => p.theme.colors.border};
 

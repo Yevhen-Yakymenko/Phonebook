@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { valueToRem } from 'utils/mixins';
-
 export const FieldBox = styled.div`
   position: relative;
   display: flex;
@@ -9,8 +7,8 @@ export const FieldBox = styled.div`
 
 export const StyledInput = styled.input`
   width: 100%;
-  padding-top: ${valueToRem(10)};
-  padding-bottom: ${valueToRem(10)};
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
   padding-right: ${p => p.theme.space[4]};
   padding-left: ${p => p.theme.space[4]};
 
