@@ -10,6 +10,7 @@ import UserMenu from 'components/UserMenu';
 import PageTitle from 'components/PageTitle';
 import ContactsFormAdd from 'components/ContactsFormAdd';
 import ContactsList from 'components/ContactsList';
+import Footer from 'components/Footer';
 
 import {
   ContactsSection,
@@ -67,7 +68,7 @@ const ContactsPage = ({ getHeight }) => {
           </StyledContainer>
         </ContactsSection>
       </main>
-      <footer>Foter</footer>
+      <Footer />
     </>
   );
 };

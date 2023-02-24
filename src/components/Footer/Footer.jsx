@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoLogoLinkedin, IoLogoGithub } from 'react-icons/io5';
+import { IoMail, IoLogoLinkedin, IoLogoGithub } from 'react-icons/io5';
 
 import {
   MainFooter,
@@ -25,6 +25,13 @@ const Footer = () => {
         </CopyrightText>
         <SocialLinksList>
           <li>
+            <SocialLink href="mailto:yevhen.yakymenko.fed@gmail.com">
+              <span aria-label="My email link">
+                <IoMail />
+              </span>
+            </SocialLink>
+          </li>
+          <li>
             <SocialLink
               href="https://www.linkedin.com/in/yevhen-yakymenko-fed/"
               target="_blank"
@@ -35,6 +42,7 @@ const Footer = () => {
               </span>
             </SocialLink>
           </li>
+
           <li>
             <SocialLink
               href="https://github.com/yevhen-yakymenko"
